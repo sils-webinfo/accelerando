@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+ <head>
+    <title>Zwei Ges&auml;nge</title>
+ </head>
+ <body>
+  <div id="cycle">
+		<h1>Zwei Ges&auml;nge</h1>
+  </div>
+  <ul id="cycleAttributes">
+	  <li class="idNumber"><span>Op. 91</span></li>
+	  <li class="composerName">Composer: <span>Brahms, Johannes</span></li>
+	  <li class="composerNationality">Composer's Nationality: <span>German</span></li>
+	  <li class="language">Language: <span>German</span></li>
+	  <li class="genre">Genre: <span>Art Song</span></li>
+	  <li class="subGenre">Subgenre: <span>Lieder</span></li>
+	  <li class="instrumentation">Instrumentation: <span>Viola, voice, and piano</span></li>
+	  <li class="difficulty">Difficulty: <span>Medium</span></li>
+  </ul>
+  <ol id="cycleSongs">
+	  <li class="piece"><a href="/BrahmsJohannes18331897Gesaengeviolapianoaccop91GestillteSehnsucht">Gestillte Sehnsucht</a></li>
+	  <li class="piece"><a href="/BrahmsJohannes18331897Gesaengeviolapianoaccop91GeistlichesWiegenlied">Geistliches Wiegenlied</a></li>
+  </ol>
+  <b>Find a Cycle:</b><form method="GET" action="/cycle">
+		Cycle title: <input name="cycle" type="text" /> <br />
+		Composer: <input name="composerName" type="text" />
+		Composer's Nationality: <input name="composerNationality" type="text" /> <br />
+		Instrumentation: <input name="instrumentation" type="text" /> <br />
+		Language: <input name="language" type="text" /> <br />
+		Genre: <input name="genre" type="text" />
+		Sub-genre: <input name="subgenre" type="text" /> <br />
+		Difficulty: (easy, medium, difficult) <input name="difficulty" type="text" /> <br />
+		<input type="submit" />
+	</form>
+	<b>Add new Cycle:</b><form method="POST" action="/cycle/{uniformTitle}">
+		Cycle title: <input name="cycle" type="text" /> <br />
+		Composer: <input name="composerName" type="text" />
+		Composer's Nationality: <input name="composerNationality" type="text" /> <br />
+		Instrumentation: <input name="instrumentation" type="text" /> <br />
+		Language: <input name="language" type="text" /> <br />
+		Genre: <input name="genre" type="text" />
+		Sub-genre: <input name="subgenre" type="text" /> <br />
+		Difficulty: (easy, medium, difficult) <input name="difficulty" type="text" /> <br />
+		<input type="submit" />
+	</form>
+ </body>
+</html>
