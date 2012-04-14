@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+ <head>
+   <title>Nuvoletta</title>
+ </head>
+ <body>
+  <div id="piece">
+		<h1>Nuvoletta</h1>
+  </div>
+  <ul id="pieceAttributes">
+	  <li class="idNumber"><span>Op. 25</span></li>
+	  <li class="composerName">Composer: <span>Barber, Samuel</span></li>
+	  <li class="composerNationality">Composer's Nationality: <span>American</span></li>
+	  <li class="poetName">Poet: <span>Joyce, James</span></li>
+	  <li class="poetNationality">Poet's Nationality: <span>Irish</span></li>
+	  <li class="instrumentation">Instrumentation: <span>Voice and piano</span></li>
+	  <li class="textSource">Text Source: <span><i>Finnegans Wake</i></span></li>
+	  <li class="language">Language: <span>English</span></li>
+	  <li class="genre">Genre: <span>Art Song</span></li>
+	  <li class="subGenre">Subgenre: <span>American Art Song</a></li>
+	  <li class="character">Associated Character(s): <span>Nuvoletta</span>, <span>Female Title Character</span></li>
+	  <li class="tempoMarking">Tempo: <span>Allegretto, dotted quarter=72</span></li>
+	  <li class="difficulty">Difficulty: <span>Difficult</span></li>
+	  <li class="inclusion">Part of a Cycle: <span>No</span></li>
+  </ul>
+	<ol class="pieceTranspositions">
+        <li class="pieceTranspositions">
+		    High Key = <span class="key">C# minor</span>, 
+			High Range = <span class="range">61-84</span>
+		</li>
+		<li class="pieceTranspositions">
+			Medium Key = <span class="key"></span>,
+			Medium Range = <span class="range"></span>
+		<li class="pieceTranspositions">
+			Low Key = <span class="key"></span>,
+			Low Range = <span class="range"></span>
+        </li>
+	</ol>
+	<b>Find a Piece:</b><form method="GET" action="/piece">
+		Piece title: <input name="piece" type="text" />
+		Cycle title: <input name="cycle" type="text" /> <br />
+		Composer: <input name="composerName" type="text" />
+		Composer's Nationality: <input name="composerNationality" type="text" /> <br />
+		Poet: <input name="poetName" type="text" />
+		Poet's Nationality: <input name="poetNationality" type="text" /> <br />
+		Key: <input class="key" type="text" /> <br />
+		Range: <input class="range" type="text" /> <br />
+		Instrumentation: <input name="instrumentation" type="text" /> <br />
+		Text Source: <input class="textSource" type="text" /> <br />
+		Language: <input name="language" type="text" /> <br />
+		Genre: <input name="genre" type="text" />
+		Sub-genre: <input name="subgenre" type="text" /> <br />
+		Character associated with the piece: <input name="character" type="text" />
+		Subject associated with the piece: <input name="subject" type="text" />
+		Mood associated with the piece: <input name="mood" type="text" /> <br />
+		Tempo (in BPM): <input name="tempoMarking" type="text" /> <br />
+		Difficulty: (easy, medium, difficult) <input name="difficulty" type="text" /> <br />
+		Is it part of a cycle? (yes or no) <input name="inclusion" type="text" /> <br />
+		<input type="submit" />
+	</form>
+	<b>Add a new Piece:</b><form method="POST" action="/piece">
+		Piece title: <input name="piece" type="text" />
+		Cycle title: <input name="cycle" type="text" /> <br />
+		Composer: <input name="composerName" type="text" />
+		Composer's Nationality: <input name="composerNationality" type="text" /> <br />
+		Poet: <input name="poetName" type="text" />
+		Poet's Nationality: <input name="poetNationality" type="text" /> <br />
+		Key: <input class="key" type="text" /> <br />
+		Range: <input class="range" type="text" /> <br />
+		Instrumentation: <input name="instrumentation" type="text" /> <br />
+		Text Source: <input class="textSource" type="text" /> <br />
+		Language: <input name="language" type="text" /> <br />
+		Genre: <input name="genre" type="text" />
+		Sub-genre: <input name="subgenre" type="text" /> <br />
+		Character associated with the piece: <input name="character" type="text" />
+		Subject associated with the piece: <input name="subject" type="text" />
+		Mood associated with the piece: <input name="mood" type="text" /> <br />
+		Tempo (in BPM): <input name="tempoMarking" type="text" /> <br />
+		Difficulty: (easy, medium, difficult) <input name="difficulty" type="text" /> <br />
+		Is it part of a cycle? (yes or no) <input name="inclusion" type="text" /> <br />
+		<input type="submit" />
+	</form>
+ </body>
+</html>
