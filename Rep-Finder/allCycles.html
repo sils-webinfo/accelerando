@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <title>Search Results: list of all cycles</title>
+  </head>
+  <body>
+	<div>
+		<h1>Search Results</h1>
+	</div>
+	<div>All cycles:</div>
+	<ul class="cycle">
+		<li><a href="/BrahmsJohannes18331897Gesaengeviolapianoaccop91">Zwei Ges&auml;nge</a></li>
+	</ul>
+	<b>Find a Cycle:</b><form method="GET" action="/cycle">
+		Cycle title: <input name="cycle" type="text" /> <br />
+		Composer: <input name="composerName" type="text" />
+		Composer's Nationality: <input name="composerNationality" type="text" /> <br />
+		Instrumentation: <input name="instrumentation" type="text" /> <br />
+		Language: <input name="language" type="text" /> <br />
+		Genre: <input name="genre" type="text" />
+		Sub-genre: <input name="subgenre" type="text" /> <br />
+		Difficulty: (easy, medium, difficult) <input name="difficulty" type="text" /> <br />
+		<input type="submit" />
+	</form>
+	<b>Add new Cycle:</b><form method="POST" action="/cycle/{uniformTitle}">
+		Cycle title: <input name="cycle" type="text" /> <br />
+		Composer: <input name="composerName" type="text" />
+		Composer's Nationality: <input name="composerNationality" type="text" /> <br />
+		Instrumentation: <input name="instrumentation" type="text" /> <br />
+		Language: <input name="language" type="text" /> <br />
+		Genre: <input name="genre" type="text" />
+		Sub-genre: <input name="subgenre" type="text" /> <br />
+		Difficulty: (easy, medium, difficult) <input name="difficulty" type="text" /> <br />
+		<input type="submit" />
+	</form>
+  </body>
+</html>
