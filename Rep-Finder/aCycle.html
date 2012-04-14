@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cycle: <%=item.cycleTi%></title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <a href="/"><h1>Cycle</h1></a>
+    <dl>
+      <dt>Title</dt>
+      <dd><%=item.cycleTi%></dd>
+	  <dt>Number</dt>
+      <dd><%=item.number%></dd>
+	  <dt>Associated Song</dt>
+      <dd><a href="/songs/<%=item.songTi%>"><%=item.songTi%></a></dd>
+	  <dt>Composition Date</dt>
+      <dd><%=item.compDate%></dd>
+	  <dt>Composer</dt>
+      <dd><%=item.comp%></dd>
+	  <dt>Composer's Nationality</dt>
+      <dd><%=item.compNat%></dd>
+	  <dt>Genre</dt>
+      <dd><%=item.genre%></dd>
+	  <dt>Difficulty</dt>
+      <dd><%=item.diff%></dd> 
+    </dl>
+
+    <div class="control">
+      <h2>Update cycle</h2>
+      <form method="post" action="/cycles/<%=item._id%>">
+        <input type="hidden" name="_method" value="put">
+        <!-- The line above tells the server to treat this as a PUT request. -->
+        <label>Title: 
+          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text" required>
+        </label>
+        <label>Number: 
+          <input name="item[number]" value="<%=item.number%>" type="text" required>
+        </label>
+		<label>Associated Song: 
+          <input name="item[songTi]" value="<%=item.songTi%>" type="text" required>
+        </label>
+		<label>Composition Date: 
+          <input name="item[dompDate]" value="<%=item.compDate%>" type="text" required>
+        </label>
+		<label>Composer: 
+          <input name="item[comp]" value="<%=item.comp%>" type="text" required>
+		</label>
+		<label>Composer Nationality: 
+          <input name="item[compNat]" value="<%=item.compNat%>" type="text" required>
+        </label>
+		<label>Genre: 
+          <input name="item[genre]" value="<%=item.genre%>" type="text" required>
+        </label>
+		<label>Difficulty: 
+          <input name="item[diff]" value="<%=item.diff%>" type="text" required>
+        </label>
+        <button>Update</button>
+      </form>
+    </div>
+  </body>
+</html>
