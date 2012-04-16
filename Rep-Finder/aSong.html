@@ -5,51 +5,75 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <a href="/"><h1>Song</h1></a>
-    <dl>
-      <dt>Title</dt>
-      <dd><%=item.songTi%></dd>
-	  <dt>Number</dt>
-      <dd><%=item.number%></dd>
-	  <dt>Associated Cycle</dt>
-      <dd><a href="/cycles/<%=item.CycleTi%>"><%=item.CycleTi%></a></dd>
-	  <dt>Composition Date</dt>
-      <dd><%=item.compDate%></dd>
-	  <dt>Composer</dt>
-      <dd><%=item.comp%></dd>
-	  <dt>Composer's Nationality</dt>
-      <dd><%=item.compNat%></dd>
-	  <dt>Poet</dt>
-      <dd><%=item.poet%></dd>
-	  <dt>Poet's Nationality</dt>
-      <dd><%=item.poetNat%></dd>
-	  <dt>Instrumentation</dt>
-      <dd><%=item.inst%></dd>
-	  <dt>Text Source</dt>
-      <dd><%=item.txtSrc%></dd>
-	  <dt>Original Language</dt>
-      <dd><%=item.orgLang%></dd>
-	  <dt>Alternate Language</dt>
-      <dd><%=item.altLang%></dd>
-	  <dt>Genre</dt>
-      <dd><%=item.genre%></dd>
-	  <dt>Associated Character</dt>
-      <dd><%=item.char%></dd>
-	  <dt>Key</dt>
-      <dd><%=item.key%></dd>
-	  <dt>Tempo</dt>
-      <dd><%=item.tempo%></dd>
-	  <dt>Range</dt>
-      <dd><%=item.range%></dd>
-	  <dt>Tessitura</dt>
-      <dd><%=item.tess%></dd>
-	  <dt>Difficulty</dt>
-      <dd><%=item.diff%></dd> 
-	  <dt>Subject</dt>
-      <dd><%=item.subject%></dd>
-	  <dt>Mood</dt>
-      <dd><%=item.mood%></dd>
-    </dl>
+  <!-- I wasn't sure that we wanted to include <div class="control"> in what we're calling a MusicComposition so I wrapped everything above it in a new <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">. Do we also want to assign this new div a class? Do we want to wrap the whole thing, both the MusicComposition div and the Update Form div in a div whose itemtype="http:schema.org/ItemPage"?-->
+    <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
+        <a href="/"><h1>Song</h1></a>
+        <dl>
+          <dt>Title</dt>
+          <dd><span itemprop="name"><%=item.songTi%></span></dd>
+    	  <dt>Number</dt>
+          <!-- "songNumber" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="songNumber"><%=item.number%></span></dd>
+    	  <dt>Associated Cycle</dt>
+          <!-- Do we want to define "cycleName" as a property of MusicComposition or extend "name" (the existing property of Thing) to "name/songCycle"? Nesting and extending are confusing. -->
+          <dd><a href="/cycles/<%=item.CycleTi%>"><%=item.CycleTi%></a></dd>
+    	  <dt>Composition Date</dt>
+          <dd><span itemprop="dateCreated"><%=item.compDate%></span></dd>
+          <!-- Similar to the new div for MusicComposition above, I created a new div for each of the different kinds of people associated with a MusicComposition (composer and poet) so that I could associate multiple properties with each (name and nationality). -->
+          <!-- "creator/composer" extends the existing property "creator" of CreativeWork. Should we instead define "composer" as a property of MusicComposition? Pros and cons? -->
+          <!-- Problem: how to express that the composer's name is both the "creator/composer" property of the CreativeWork/MusicComposition and the name property of the Person? I don't think my nesting works. -->
+          <div itemscope itemtype="http://schema.org/Person">
+    	  <dt>Composer</dt>
+          <dd><span itemprop="creator/composer"><span itemprop="name"><%=item.comp%></span></span></dd>
+    	  <dt>Composer's Nationality</dt>
+          <dd><span itemprop="nationality"><%=item.compNat%></span></dd>
+          </div>
+          <!-- Problem: how to express that the poet's name is both the "creator/poet" property of the CreativeWork/MusicComposition and the name property of the Person? I don't think my nesting works. -->
+          <div itemscope itemtype="http://schema.org/Person">
+    	  <dt>Poet</dt>
+          <dd><span itemprop="creator/poet"><span itemprop="name"><%=item.poet%></span></span></dd>
+    	  <dt>Poet's Nationality</dt>
+          <dd><span itemprop="nationality"><%=item.poetNat%></span></dd>
+          </div>
+    	  <dt>Instrumentation</dt>
+          <!-- "instrumentation" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="instrumentation"><%=item.inst%></span></dd>
+    	  <dt>Text Source</dt>
+          <!-- "textSource" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="textSource"><%=item.txtSrc%></span></dd>
+    	  <dt>Original Language</dt>
+          <dd><span itemprop="inLanguage"><%=item.orgLang%><span></dd>
+    	  <dt>Alternate Language</dt>
+          <!-- "alternateLanguage" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="alternateLanguage"><%=item.altLang%></span></dd>
+    	  <dt>Genre</dt>
+          <dd><span itemprop="genre"><%=item.genre%></span></dd>
+          <!-- Problem: how to express that the character's name is both the "associatedCharacter" property of the MusicComposition and the name property of the Person? I don't think my nesting works. -->
+          <div itemscope itemtype="http://schema.org/Person">
+    	  <dt>Associated Character</dt>
+          <dd><span itemprop="associatedCharacter"><span itemprop="name"><%=item.char%></span></span></dd>
+          </div>
+    	  <dt>Key</dt>
+          <!-- "key" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="key"><%=item.key%></span></dd>
+    	  <dt>Tempo</dt>
+          <!-- "tempo" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="tempo"><%=item.tempo%></span></dd>
+    	  <dt>Range</dt>
+          <!-- "range" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="range"><%=item.range%></span></dd>
+    	  <dt>Tessitura</dt>
+          <!-- "tessitura" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="tessitura"><%=item.tess%></span></dd>
+    	  <dt>Difficulty</dt>
+          <!-- "difficulty" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="difficulty"><%=item.diff%></span></dd> 
+    	  <dt>Subject</dt>
+          <dd><span itemprop="about"><%=item.subject%></span></dd>
+    	  <dt>Mood</dt>
+          <dd><span itemprop="keywords"><%=item.mood%></span></dd>
+        </dl>
+    </div>
 
     <div class="control">
       <h2>Update song</h2>
