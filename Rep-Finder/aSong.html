@@ -22,16 +22,16 @@
           <!-- Similar to the new div for MusicComposition above, I created a new div for each of the different kinds of people associated with a MusicComposition (composer and poet) so that I could associate multiple properties with each (name and nationality). -->
           <!-- "creator/composer" extends the existing property "creator" of CreativeWork. Should we instead define "composer" as a property of MusicComposition? Pros and cons? -->
           <!-- Problem: how to express that the composer's name is both the "creator/composer" property of the CreativeWork/MusicComposition and the name property of the Person? I don't think my nesting works. -->
-          <div itemscope itemtype="http://schema.org/Person">
+          <div itemprop="creator/composer" itemscope itemtype="http://schema.org/Person">
     	  <dt>Composer</dt>
-          <dd><span itemprop="creator/composer"><span itemprop="name"><%=item.comp%></span></span></dd>
+          <dd><span itemprop="name"><%=item.comp%></span></dd>
     	  <dt>Composer's Nationality</dt>
           <dd><span itemprop="nationality"><%=item.compNat%></span></dd>
           </div>
           <!-- Problem: how to express that the poet's name is both the "creator/poet" property of the CreativeWork/MusicComposition and the name property of the Person? I don't think my nesting works. -->
-          <div itemscope itemtype="http://schema.org/Person">
+          <div itemprop="creator/poet" itemscope itemtype="http://schema.org/Person">
     	  <dt>Poet</dt>
-          <dd><span itemprop="creator/poet"><span itemprop="name"><%=item.poet%></span></span></dd>
+          <dd><span <span itemprop="name"><%=item.poet%></span></dd>
     	  <dt>Poet's Nationality</dt>
           <dd><span itemprop="nationality"><%=item.poetNat%></span></dd>
           </div>
@@ -49,9 +49,9 @@
     	  <dt>Genre</dt>
           <dd><span itemprop="genre"><%=item.genre%></span></dd>
           <!-- Problem: how to express that the character's name is both the "associatedCharacter" property of the MusicComposition and the name property of the Person? I don't think my nesting works. -->
-          <div itemscope itemtype="http://schema.org/Person">
+          <div itemprop="associatedCharacter" itemscope itemtype="http://schema.org/Person">
     	  <dt>Associated Character</dt>
-          <dd><span itemprop="associatedCharacter"><span itemprop="name"><%=item.char%></span></span></dd>
+          <dd><span itemprop="name"><%=item.char%></span></dd>
           </div>
     	  <dt>Key</dt>
           <!-- "key" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
