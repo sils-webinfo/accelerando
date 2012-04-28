@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Election Data: Parties</title>
+    <title>Accelerando: List of Cycles</title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <a href="/"><h1>Election Data</h1></a>
+    <a href="/"><h1>Accelerando</h1></a>
     <% if (items.length > 0) { %>
     <ul>
       <% items.forEach(function(item) { %>
-      <li><a href="/parties/<%=item._id%>"><%=item.name%></a></li>
+      <li><a href="/cycles/<%=item._id%>"><%=item.name%></a></li>
       <% }); %>
     </ul>
     <% } else { %>
-    <div>No parties have been added.</div>
+    <div>No cycles have been added.</div>
     <% } %>
     <div class="control">
-      <h2>Add or update a new political party</h2>
+      <h2>Add or update a new cycle</h2>
       <script>
       function onFormSubmit(form) {
         form.action = form.action + form.elements['item[id]'].value;
@@ -24,22 +24,22 @@
         return true;
       } 
       </script>
-      <form method="post" action="/parties/"
+      <form method="post" action="/cycles/"
             onsubmit="return onFormSubmit(this);">
         <!-- The line above dynamically sets the PUT destination when the -->
         <!-- form is submitted. -------------------------------------------->
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
-        <label>Party ID<br>
+        <label>Cycle ID<br>
           (lowercase letters only, no spaces):
           <input name="item[id]" type="text" pattern="[a-z]+" required
                  placeholder="green">
         </label>
-        <label>Party name: 
+        <label>Cycle name: 
           <input name="item[name]" type="text" required
-                 placeholder="The Green Party">
+                 placeholder="The Ring">
         </label>
-        <label>Party description:
+        <label>Cycle description:
           <textarea name="item[description]" cols="80" rows="10" 
                     placeholder="The Green Party of the United States of America emphasizes environmentalism, non-hierarchical participatory democracy, social justice, respect for diversity, peace and nonviolence."
           ></textarea>
