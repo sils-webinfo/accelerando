@@ -39,7 +39,7 @@ app.put('/pieces/:id',      // TODO: change to suit your URI design.
     var item_id = req.params.id;
 
     // Get the item info that was PUT from the input form.
-    // See the form in `views/list-pieces.ejs`.
+    // See the form in `views/one-piece.ejs`.
     var item = req.body.item;
     
     item.type = 'piece'; // TODO: change to the type of item you want
@@ -57,8 +57,8 @@ app.put('/pieces/:id',      // TODO: change to suit your URI design.
 );
 
 ////////////////////////////////////////////////////////////////////////////////
-// Handling PUT to update piece resource. /////////////////////
-// Here we update a piece using the ID specified in the URI. /////////
+// Handling PUT to update cycle resource. /////////////////////
+// Here we update a cycle using the ID specified in the URI. /////////
 ////////////////////////////////////////////////////////////////////////////////
 app.put('/cycle/:id',      // TODO: change to suit your URI design.
   function(req, res) {
@@ -67,7 +67,7 @@ app.put('/cycle/:id',      // TODO: change to suit your URI design.
     var item_id = req.params.id;
 
     // Get the item info that was PUT from the input form.
-    // See the form in `views/list-cycles.ejs`.
+    // See the form in `views/one-cycle.ejs`.
     var item = req.body.item;
     
     item.type = 'cycle'; // TODO: change to the type of item you want
@@ -85,7 +85,7 @@ app.put('/cycle/:id',      // TODO: change to suit your URI design.
 );
 
 ////////////////////////////////////////////////////////////////////////////////
-// Example of handling GET of a "collection" resource. /////////////////////////
+// Handling GET of the list-cycles resource. /////////////////////////
 // Here we list all items of type `cycle`. /////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 app.get('/cycles/',         // TODO: change to suit your URI design. 
@@ -111,7 +111,7 @@ app.get('/cycles/',         // TODO: change to suit your URI design.
 );
 
 ////////////////////////////////////////////////////////////////////////////////
-// Example of handling GET of a "collection" resource. /////////////////////////
+// Handling GET of the list-piece resource. /////////////////////////
 // Here we list all items of type `piece`. /////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 app.get('/pieces/',         // TODO: change to suit your URI design. 
@@ -137,8 +137,8 @@ app.get('/pieces/',         // TODO: change to suit your URI design.
 );
 
 ////////////////////////////////////////////////////////////////////////////////
-// Example of handling POST to create a resource. //////////////////////////////
-// Here we create an item and allow the ID to be created automatically. ////////
+// Handling POST to create a piece resource. //////////////////////////////
+// Here we create a piece and allow the ID to be created automatically. ////////
 ////////////////////////////////////////////////////////////////////////////////
 app.post('/pieces/', // TODO: change to suit your URI design.
   function(req, res) {
@@ -162,14 +162,14 @@ app.post('/pieces/', // TODO: change to suit your URI design.
 );
 
 ////////////////////////////////////////////////////////////////////////////////
-// Example of handling POST to create a resource. //////////////////////////////
-// Here we create an item and allow the ID to be created automatically. ////////
+// Handling POST to create a cycle resource. //////////////////////////////
+// Here we create a cycle and allow the ID to be created automatically. ////////
 ////////////////////////////////////////////////////////////////////////////////
 app.post('/cycles/', // TODO: change to suit your URI design.
   function(req, res) {
   
     // Get the item info that was POSTed from the input form.
-    // See the form in `views/list-cycle.ejs`.
+    // See the form in `views/list-cycles.ejs`.
     var item = req.body.item;
 
     item.type = 'cycle'; // TODO: change to the type of item you want
@@ -186,61 +186,6 @@ app.post('/cycles/', // TODO: change to suit your URI design.
   }
 );
 
-////////////////////////////////////////////////////////////////////////////////
-// Another example of handling PUT to update a resource. ///////////////////////
-// Here we update an item using the ID specified in the URI. ///////////////////
-////////////////////////////////////////////////////////////////////////////////
-app.put('/pieces/:id', // TODO: change to suit your URI design.
-  function(req, res) {
-  
-    // Get the item ID from the URI.
-    var item_id = req.params.id;
-
-    // Get the item info that was PUT from the input form.
-    // See the form in `views/one-piece.ejs`.
-    var item = req.body.item;
-
-    item.type = 'piece'; // TODO: change to the type of item you want
-
-    // Save the new item to the database, specifying the ID.
-    db.save(item_id, item, function(err) {
-
-      // If there was a database error, return an error status.
-      if (err) { res.send(err, 500); } 
-      
-      // Otherwise, redirect back to the URI from which the form was submitted.
-      else { res.redirect('back' ); }
-    });
-  }
-);
-
-////////////////////////////////////////////////////////////////////////////////
-// Another example of handling PUT to update a resource. ///////////////////////
-// Here we update an item using the ID specified in the URI. ///////////////////
-////////////////////////////////////////////////////////////////////////////////
-app.put('/cycles/:id', // TODO: change to suit your URI design.
-  function(req, res) {
-  
-    // Get the item ID from the URI.
-    var item_id = req.params.id;
-
-    // Get the item info that was PUT from the input form.
-    // See the form in `views/one-cycle.ejs`.
-    var item = req.body.item;
-
-    item.type = 'cycle'; // TODO: change to the type of item you want
-
-    // Save the new item to the database, specifying the ID.
-    db.save(item_id, item, function(err) {
-
-      // If there was a database error, return an error status.
-      if (err) { res.send(err, 500); } 
-      
-      // Otherwise, redirect back to the URI from which the form was submitted.
-      else { res.redirect('back' ); }
-    });
-  }
-);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Another example of handling GET of a "collection" resource. /////////////////
@@ -269,7 +214,7 @@ app.get('/cycles/',          // TODO: change to suit your URI design.
 );
 
 ////////////////////////////////////////////////////////////////////////////////
-// An example of handling GET of a "single" resource. //////////////////////////
+// Handling GET of a cycle resource. //////////////////////////
 // This handler is more complicated, because we want to show not only the //////
 // item requested, but also links to a set of related items. ///////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -320,7 +265,7 @@ app.get('/cycles/:id',      // TODO: change to suit your URI design.
 );
 
 ////////////////////////////////////////////////////////////////////////////////
-// An example of handling GET of a "single" resource. //////////////////////////
+// Handling GET of a piece resource. //////////////////////////
 // This handler is also complicated, because we want to show not only the //////
 // item requested, but also a list of potential related items, so that users ///
 // can select from a list when updating the item. //////////////////////////////
