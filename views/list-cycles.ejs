@@ -30,21 +30,28 @@
         <!-- form is submitted. -------------------------------------------->
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
-        <label>Cycle ID<br>
-          (lowercase letters only, no spaces):
-          <input name="item[id]" type="text" pattern="[a-z]+" required
-                 placeholder="green">
+        <label>Title: 
+          <input name="item[cycleTi]" type="text" required>
         </label>
-        <label>Cycle name: 
-          <input name="item[name]" type="text" required
-                 placeholder="The Ring">
+        <label>Number: 
+          <input name="item[number]" type="number" required>
         </label>
-        <label>Cycle description:
-          <textarea name="item[description]" cols="80" rows="10" 
-                    placeholder="The Green Party of the United States of America emphasizes environmentalism, non-hierarchical participatory democracy, social justice, respect for diversity, peace and nonviolence."
-          ></textarea>
+		<label>Composition Date: 
+          <input name="item[compDate]" type="text" required>
         </label>
-        <button>Add or update</button>
+		<label>Composer: 
+          <input name="item[comp]" type="text" required>
+		</label>
+		<label>Composer Nationality: 
+          <input name="item[compNat]" type="text" required>
+        </label>
+		<label>Genre: 
+          <input name="item[genre]" type="text" required>
+        </label>
+		<label>Difficulty: 
+          <input name="item[diff]" type="text" required>
+        </label>
+        <button>Update</button>
       </form>
     </div>
   </body>
