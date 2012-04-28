@@ -73,7 +73,7 @@
     </div>
 
     <div class="control">
-      <h2>Update song</h2>
+      <h2>Update piece</h2>
       <form method="post" action="/pieces/<%=item._id%>">
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
@@ -81,7 +81,7 @@
           <input name="item[songTi]" value="<%=item.songTi%>" type="text" required>
         </label>
         <label>Number: 
-          <input name="item[number]" value="<%=item.number%>" type="text" required>
+          <input name="item[number]" value="<%=item.number%>" type="number" required>
         </label>
 		<label>Associated Cycle: 
           <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text" required>
