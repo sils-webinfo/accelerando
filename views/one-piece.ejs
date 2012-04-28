@@ -1,41 +1,144 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Election Data: <%=item.name%></title>
+    <title>Song: <%=item.songTi%></title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <a href="/"><h1>Election Data</h1></a>
-    <dl>
-      <dt>Name</dt>
-      <dd><%=item.name%></dd>
-      <dt>Party</dt>
-      <dd><a href="/parties/<%=item.party%>"><%=item.party%></a></dd>
-      <% if (item.image) { %>
-      <dt>Image URL</dt>
-      <dd><img src="<%=item.image%>" alt="<%=item.name%>"></dd>
-      <% } %>
-    </dl>
+  <!-- I wasn't sure that we wanted to include <div class="control"> in what we're calling a MusicComposition so I wrapped everything above it in a new <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">. Do we also want to assign this new div a class? Do we want to wrap the whole thing, both the MusicComposition div and the Update Form div in a div whose itemtype="http:schema.org/ItemPage"?-->
+    <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
+        <a href="/"><h1>Song</h1></a>
+        <dl>
+          <dt>Title</dt>
+          <dd><span itemprop="name"><%=item.songTi%></span></dd>
+          <dt>Number</dt>
+          <!-- "songNumber" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="songNumber"><%=item.number%></span></dd>
+    	  <dt>Associated Cycle</dt>
+          <!-- Do we want to define "cycleName" as a property of MusicComposition or extend "name" (the existing property of Thing) to "name/songCycle"? Nesting and extending are confusing. -->
+          <dd><a href="/cycles/<%=item.CycleTi%>"><%=item.CycleTi%></a></dd>
+    	  <dt>Composition Date</dt>
+          <dd><span itemprop="dateCreated"><%=item.compDate%></span></dd>
+          <!-- Similar to the new div for MusicComposition above, I created a new div for each of the different kinds of people associated with a MusicComposition (composer and poet) so that I could associate multiple properties with each (name and nationality). -->
+          <!-- "creator/composer" extends the existing property "creator" of CreativeWork. -->
+          <div itemprop="creator/composer" itemscope itemtype="http://schema.org/Person">
+        	  <dt>Composer</dt>
+              <dd><span itemprop="name"><%=item.comp%></span></dd>
+        	  <dt>Composer's Nationality</dt>
+              <dd><span itemprop="nationality"><%=item.compNat%></span></dd>
+          </div>
+          <div itemprop="creator/poet" itemscope itemtype="http://schema.org/Person">
+        	  <dt>Poet</dt>
+              <dd><span <span itemprop="name"><%=item.poet%></span></dd>
+        	  <dt>Poet's Nationality</dt>
+              <dd><span itemprop="nationality"><%=item.poetNat%></span></dd>
+          </div>
+    	  <dt>Instrumentation</dt>
+          <!-- "instrumentation" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="instrumentation"><%=item.inst%></span></dd>
+    	  <dt>Text Source</dt>
+          <!-- "textSource" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="textSource"><%=item.txtSrc%></span></dd>
+    	  <dt>Original Language</dt>
+          <dd><span itemprop="inLanguage"><%=item.orgLang%><span></dd>
+    	  <dt>Alternate Language</dt>
+          <!-- "alternateLanguage" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="alternateLanguage"><%=item.altLang%></span></dd>
+    	  <dt>Genre</dt>
+          <dd><span itemprop="genre"><%=item.genre%></span></dd>
+          <div itemprop="associatedCharacter" itemscope itemtype="http://schema.org/Person">
+        	  <dt>Associated Character</dt>
+              <dd><span itemprop="name"><%=item.char%></span></dd>
+          </div>
+    	  <dt>Key</dt>
+          <!-- "key" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="key"><%=item.key%></span></dd>
+    	  <dt>Tempo</dt>
+          <!-- "tempo" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="tempo"><%=item.tempo%></span></dd>
+    	  <dt>Range</dt>
+          <!-- "range" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="range"><%=item.range%></span></dd>
+    	  <dt>Tessitura</dt>
+          <!-- "tessitura" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="tessitura"><%=item.tess%></span></dd>
+    	  <dt>Difficulty</dt>
+          <!-- "difficulty" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <dd><span itemprop="difficulty"><%=item.diff%></span></dd> 
+    	  <dt>Subject</dt>
+          <dd><span itemprop="about"><%=item.subject%></span></dd>
+    	  <dt>Mood</dt>
+          <dd><span itemprop="keywords"><%=item.mood%></span></dd>
+        </dl>
+    </div>
+
     <div class="control">
-      <h2>Update candidate</h2>
-      <form method="post" action="/candidates/<%=item._id%>">
+      <h2>Update song</h2>
+      <form method="post" action="/pieces/<%=item._id%>">
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
-        <label>Name: 
-          <input name="item[name]" value="<%=item.name%>" type="text" required>
+        <label>Title: 
+          <input name="item[songTi]" value="<%=item.songTi%>" type="text" required>
         </label>
-        <label>Party: 
-          <select name="item[party]" required>
-            <% related_items.forEach(function(related_item) { %>
-            <option value="<%=related_item._id%>"
-              <% if (related_item._id === item.party) { %>selected<% } %>>
-              <%=related_item.name%>
-            </option>
-            <% }); %>
-          </select>
+        <label>Number: 
+          <input name="item[number]" value="<%=item.number%>" type="text" required>
         </label>
-        <label>Image URL:
-          <input name="item[image]" value="<%=item.image%>" type="url" size="80"> 
+		<label>Associated Cycle: 
+          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text" required>
+        </label>
+		<label>Composition Date: 
+          <input name="item[dompDate]" value="<%=item.compDate%>" type="text" required>
+        </label>
+		<label>Composer: 
+          <input name="item[comp]" value="<%=item.comp%>" type="text" required>
+		</label>
+		<label>Composer Nationality: 
+          <input name="item[compNat]" value="<%=item.compNat%>" type="text" required>
+        </label>
+		<label>Poet: 
+          <input name="item[poet]" value="<%=item.poet%>" type="text" required>
+        </label>
+		<label>Poet Nationality: 
+          <input name="item[poetNat]" value="<%=item.poetNat%>" type="text" required>
+        </label>
+		<label>Instrumentation: 
+          <input name="item[inst]" value="<%=item.inst%>" type="text" required>
+        </label>
+		<label>Text Source: 
+          <input name="item[txtSrc]" value="<%=item.txtSrc%>" type="text" required>
+        </label>
+		<label>Original Language: 
+          <input name="item[orgLang]" value="<%=item.orgLang%>" type="text" required>
+        </label>
+		<label>Alternate Language: 
+          <input name="item[altLang]" value="<%=item.altLang%>" type="text" required>
+        </label>
+		<label>Genre: 
+          <input name="item[genre]" value="<%=item.genre%>" type="text" required>
+        </label>
+		<label>Associated Character: 
+          <input name="item[char]" value="<%=item.char%>" type="text" required>
+        </label>
+		<label>Key: 
+          <input name="item[key]" value="<%=item.key%>" type="text" required>
+        </label>
+		<label>Tempo: 
+          <input name="item[tempo]" value="<%=item.tempo%>" type="text" required>
+        </label>
+		<label>Range: 
+          <input name="item[range]" value="<%=item.range%>" type="text" required>
+        </label>
+		<label>Tessitura: 
+          <input name="item[tess]" value="<%=item.tess%>" type="text" required>
+        </label>
+		<label>Difficulty: 
+          <input name="item[diff]" value="<%=item.diff%>" type="text" required>
+        </label>
+		<label>Subject: 
+          <input name="item[title]" value="<%=item.title%>" type="text" required>
+        </label>
+		<label>Mood: 
+          <input name="item[mood]" value="<%=item.mood%>" type="text" required>
         </label>
         <button>Update</button>
       </form>
