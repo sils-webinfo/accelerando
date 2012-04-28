@@ -1,50 +1,105 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Election Data: <%=item.name%></title>
+    <title>Accelerando: <%=item.name%></title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <a href="/"><h1>Election Data</h1></a>
+    <a href="/"><h1>Accelerando</h1></a>
     <dl>
-      <dt>Party name</dt>
+      <dt>Cycle name</dt>
       <dd><%=item.name%></dd>
       <% if (item.description) { %>
       <dt>Description</dt>
       <dd><%=item.description%></dd>
       <% } %>
-      <dt>Candidates</dt>
+      <dt>Pieces</dt>
       
       <dd>
         <% if (related_items.length > 0) { %>
         <ul>
           <% related_items.forEach(function(related_item) { %>
           <li>
-            <a href="/candidates/<%=related_item._id%>">
+            <a href="/pieces/<%=related_item._id%>">
               <%=related_item.name%>
             </a>
           </li>
           <% }); %>
         </ul>
         <% } else { %>
-        No candidates have been added to this party.
+        No pieces have been added to this cycle.
         <% } %>
       </dd>
     </dl>
     <div class="control">
-      <h2>Add a new candidate</h2>
-      <form id="create-candidate" method="post" action="/candidates/">
-        <input type="hidden" name="item[party]" value="<%=item._id%>">
-        <!-- The line above links the candidate to be created to this party. -->
-        <label>Candidate name: 
-          <input name="item[name]" type="text" required
-                   placeholder="Ron Paul">
+      <h2>Add a new piece</h2>
+      <form id="create-piece" method="post" action="/pieces/">
+        <input type="hidden" name="item[cycle]" value="<%=item._id%>">
+        <!-- The line above links the piece to be created to this cycle. -->
+        <label>Title: 
+          <input name="item[songTi]" value="<%=item.songTi%>" type="text" required>
         </label>
-        <label>Candidate image URL:
-          <input name="item[image]" type="url" size="80"
-                   placeholder="http://www.ronpaul2012.com/wp-content/themes/ronpaul/images/bg-header.jpg">
+        <label>Number: 
+          <input name="item[number]" value="<%=item.number%>" type="number" required>
         </label>
-        <button>Add</button>
+    	<label>Associated Cycle: 
+          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text" required>
+        </label>
+		<label>Composition Date: 
+          <input name="item[dompDate]" value="<%=item.compDate%>" type="text" required>
+        </label>
+		<label>Composer: 
+          <input name="item[comp]" value="<%=item.comp%>" type="text" required>
+		</label>
+		<label>Composer Nationality: 
+          <input name="item[compNat]" value="<%=item.compNat%>" type="text" required>
+        </label>
+		<label>Poet: 
+          <input name="item[poet]" value="<%=item.poet%>" type="text" required>
+        </label>
+		<label>Poet Nationality: 
+          <input name="item[poetNat]" value="<%=item.poetNat%>" type="text" required>
+        </label>
+		<label>Instrumentation: 
+          <input name="item[inst]" value="<%=item.inst%>" type="text" required>
+        </label>
+		<label>Text Source: 
+          <input name="item[txtSrc]" value="<%=item.txtSrc%>" type="text" required>
+        </label>
+		<label>Original Language: 
+          <input name="item[orgLang]" value="<%=item.orgLang%>" type="text" required>
+        </label>
+		<label>Alternate Language: 
+          <input name="item[altLang]" value="<%=item.altLang%>" type="text" required>
+        </label>
+		<label>Genre: 
+          <input name="item[genre]" value="<%=item.genre%>" type="text" required>
+        </label>
+		<label>Associated Character: 
+          <input name="item[char]" value="<%=item.char%>" type="text" required>
+        </label>
+		<label>Key: 
+          <input name="item[key]" value="<%=item.key%>" type="text" required>
+        </label>
+		<label>Tempo: 
+          <input name="item[tempo]" value="<%=item.tempo%>" type="text" required>
+        </label>
+		<label>Range: 
+          <input name="item[range]" value="<%=item.range%>" type="text" required>
+        </label>
+		<label>Tessitura: 
+          <input name="item[tess]" value="<%=item.tess%>" type="text" required>
+        </label>
+		<label>Difficulty: 
+          <input name="item[diff]" value="<%=item.diff%>" type="text" required>
+        </label>
+		<label>Subject: 
+          <input name="item[title]" value="<%=item.title%>" type="text" required>
+        </label>
+		<label>Mood: 
+          <input name="item[mood]" value="<%=item.mood%>" type="text" required>
+        </label>
+        <button>Update</button>
       </form>
     </div>
   </body>
