@@ -55,74 +55,86 @@
     </dl>
     <div class="control">
       <h2>Add a new piece</h2>
-      <form id="create-piece" method="post" action="/pieces/">
-        <input type="hidden" name="item[cycle]" value="<%=item._id%>">
-        <!-- The line above links the piece to be created to this cycle. -->
-        <label>Title: 
-          <input name="item[songTi]" type="text" required>
+            <form method="post" action="/pieces/<%=item._id%>">
+        <input type="hidden" name="_method" value="put">
+        <!-- The line above tells the server to treat this as a PUT request. -->
+        <label>Title:
+          <input name="item[songTi]" value="<%=item.songTi%>" type="text" required>
         </label>
-        <label>Opus Number: 
-          <input name="item[opusNum]" type="number">
+        <label>Number:
+          <input name="item[number]" value="<%=item.number%>" type="number" required>
         </label>
-    	<label>Associated Cycle: 
-          <input name="item[cycleTi]" type="text" required>
+    	<label>Associated Cycle:
+          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text" required>
         </label>
-		<label>Composition Date (text): 
-          <input name="item[compDateText]" type="text" required>
+		<label>Composition Date:
+          <input name="item[dompDate]" value="<%=item.compDate%>" type="text" required>
         </label>
-    	<label>Composition Date (numeric): 
-          <input name="item[compDateNum]" type="date" required>
-        </label>
-		<label>Composer: 
-          <input name="item[comp]" type="text">
+		<label>Composer:
+          <input name="item[comp]" value="<%=item.comp%>" type="text" required>
 		</label>
-		<label>Composer Nationality: 
-          <input name="item[compNat]" type="text">
+		<label>Composer Nationality:
+          <input name="item[compNat]" value="<%=item.compNat%>" type="text" required>
         </label>
-		<label>Poet: 
-          <input name="item[poet]" type="text">
+		<label>Poet:
+          <input name="item[poet]" value="<%=item.poet%>" type="text" required>
         </label>
-		<label>Poet Nationality: 
-          <input name="item[poetNat]" type="text">
+		<label>Poet Nationality:
+          <input name="item[poetNat]" value="<%=item.poetNat%>" type="text" required>
         </label>
-		<label>Instrumentation: 
-          <input name="item[inst]" type="text" required>
+		<label>Instrumentation:
+          <input name="item[inst]" value="<%=item.inst%>" type="text" required>
         </label>
-		<label>Text Source: 
-          <input name="item[txtSrc]" type="text">
+		<label>Text Source:
+          <input name="item[txtSrc]" value="<%=item.txtSrc%>" type="text" required>
         </label>
-		<label>Original Language: 
-          <input name="item[orgLang]" type="text" required>
+		<label>Original Language:
+          <input name="item[orgLang]" value="<%=item.orgLang%>" type="text" required>
         </label>
-		<label>Alternate Language: 
-          <input name="item[altLang]" type="text">
+		<label>Alternate Language:
+          <input name="item[altLang]" value="<%=item.altLang%>" type="text" required>
         </label>
-		<label>Genre: 
-          <input name="item[genre]" type="text" required>
+		<label>Genre:
+          <input name="item[genre]" value="<%=item.genre%>" type="text" required>
         </label>
-		<label>Associated Character: 
-          <input name="item[char]" type="text">
+		<label>Associated Character:
+          <input name="item[char]" value="<%=item.char%>" type="text" required>
+        </label>
+        <label>Gender of Associated Character:
+          <input name="item[char]" value="<%=item.charGender%>" type="text">
+        </label>
+        <label>Age Range of Associated Character:
+          <input name="item[charAgeRange]" value="<%=item.charAgeRange%>" type="text">
+        </label>
+        <label>Social Status of Associated Character:
+          <input name="item[charSocStat]" value="<%=item.charSocStat%>" type="text">
         </label>
 		<label>Key: 
-          <input name="item[key]" type="text" required>
+          <input name="item[key]" value="<%=item.key%>" type="text" required>
         </label>
-		<label>Tempo: 
-          <input name="item[tempo]" type="text">
+        <label>Alternate Key:
+          <input name="item[altKey]" value="<%=item.altKey%>" type="text">
         </label>
-		<label>Range: 
-          <input name="item[range]" type="text" required>
+		<label>Tempo:
+          <input name="item[tempo]" value="<%=item.tempo%>" type="text" required>
         </label>
-		<label>Tessitura: 
-          <input name="item[tess]" type="text">
+        <label>Metronome Marking:
+          <input name="item[metMark]" value="<%=item.metMark%>" type="text">
         </label>
-		<label>Difficulty: 
-          <input name="item[diff]" type="text">
+		<label>Range:
+          <input name="item[range]" value="<%=item.range%>" type="text" required>
         </label>
-		<label>Subject: 
-          <input name="item[title]" type="text">
+		<label>Tessitura:
+          <input name="item[tess]" value="<%=item.tess%>" type="text" required>
         </label>
-		<label>Mood: 
-          <input name="item[mood]" type="text">
+		<label>Difficulty:
+          <input name="item[diff]" value="<%=item.diff%>" type="text" required>
+        </label>
+		<label>Subject:
+          <input name="item[title]" value="<%=item.title%>" type="text" required>
+        </label>
+		<label>Mood:
+          <input name="item[mood]" value="<%=item.mood%>" type="text" required>
         </label>
         <button>Update</button>
       </form>
