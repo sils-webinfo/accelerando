@@ -6,15 +6,36 @@
   </head>
   <body>
     <a href="/"><h1>Accelerando</h1></a>
-    <dl>
-      <dt>Cycle name</dt>
-      <dd><%=item.name%></dd>
-      <% if (item.description) { %>
-      <dt>Description</dt>
-      <dd><%=item.description%></dd>
-      <% } %>
-      <dt>Pieces</dt>
-      
+    <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
+        <a href="/"><h1>Cycle</h1></a>
+        <dl>
+          <dt>Title</dt>
+            <dd><span itemprop="name"><%=item.cycleTi%></span></dd>
+          <div itemprop="creator/composer" itemscope itemtype="http://schema.org/Person">
+              <dt>Composer</dt>
+              <dd><span itemprop="name"><%=item.comp%></span></dd>
+        	  <dt>Composer's Nationality</dt>
+              <dd><span itemprop="nationality"><%=item.compNat%></span></dd>
+          </div>
+          <dt>Genre</dt>
+            <dd><span itemprop="genre"><%=item.genre%></span></dd>
+          <dt>Difficulty</dt>
+            <dd><span itemprop="difficulty"><%=item.diff%></span></dd> 
+
+        <% if (item.description) { %>
+
+          <dt>Description</dt>
+            <dd><%=item.description%></dd>
+            <% } %>
+          <dt>Associated Pieces</dt>
+            <dd><a href="/pieces/<%=item.PieceTi%>"><%=item.PieceTi%></a></dd>
+
+///////////////////////////////////////////////////////////////////////////////
+// I did not include "Composition Date" within Cycle because the composition //
+// dates of the individual pieces may be different. I also deleted this from //
+// the "update the cycle" form. ///////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
       <dd>
         <% if (related_items.length > 0) { %>
         <ul>
@@ -126,12 +147,6 @@
         </label>
         <label>Number: 
           <input name="item[cycleNum]" type="number">
-        </label>
-    	<label>Composition Date (text): 
-          <input name="item[compDateText]" type="text" required>
-        </label>
-    	<label>Composition Date (numeric): 
-          <input name="item[compDateNum]" type="date" required>
         </label>
 		<label>Composer: 
           <input name="item[comp]" type="text" required>
