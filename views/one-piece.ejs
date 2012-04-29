@@ -20,8 +20,10 @@
     	  <dt>Associated Cycle</dt>
           <!-- Do we want to define "cycleName" as a property of MusicComposition or extend "name" (the existing property of Thing) to "name/songCycle"? Nesting and extending are confusing. -->
           <dd><%=item.CycleTi%></a></dd>
-    	  <dt>Composition Date</dt>
-          <dd><span itemprop="dateCreated"><%=item.compDate%></span></dd>
+    	  <dt>Composition Date (numeric)</dt>
+          <dd><span itemprop="dateCreated"><%=item.compDateNum%></span></dd>
+          <dt>Composition Date (text)</dt>
+          <dd><span itemprop="dateCreated"><%=item.compDateText%></span></dd>
           <!-- Similar to the new div for MusicComposition above, I created a new div for each of the different kinds of people associated with a MusicComposition (composer and poet) so that I could associate multiple properties with each (name and nationality). -->
           <!-- "creator/composer" extends the existing property "creator" of CreativeWork. -->
           <div itemprop="creator/composer" itemscope itemtype="http://schema.org/Person">
@@ -107,38 +109,41 @@
 		<label>Associated Cycle:
           <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text" required>
         </label>
-		<label>Composition Date:
-          <input name="item[dompDate]" value="<%=item.compDate%>" type="text" required>
+		<label>Composition Date (numeric):
+          <input name="item[compDateNum]" value="<%=item.compDateNum%>" type="date">
+        </label>
+        <label>Composition Date (text):
+          <input name="item[compDateText]" value="<%=item.compDateText%>" type="text" required>
         </label>
 		<label>Composer:
-          <input name="item[comp]" value="<%=item.comp%>" type="text" required>
+          <input name="item[comp]" value="<%=item.comp%>" type="text">
 		</label>
 		<label>Composer Nationality:
-          <input name="item[compNat]" value="<%=item.compNat%>" type="text" required>
+          <input name="item[compNat]" value="<%=item.compNat%>" type="text">
         </label>
 		<label>Poet:
-          <input name="item[poet]" value="<%=item.poet%>" type="text" required>
+          <input name="item[poet]" value="<%=item.poet%>" type="text">
         </label>
 		<label>Poet Nationality:
-          <input name="item[poetNat]" value="<%=item.poetNat%>" type="text" required>
+          <input name="item[poetNat]" value="<%=item.poetNat%>" type="text">
         </label>
 		<label>Instrumentation:
           <input name="item[inst]" value="<%=item.inst%>" type="text" required>
         </label>
 		<label>Text Source:
-          <input name="item[txtSrc]" value="<%=item.txtSrc%>" type="text" required>
+          <input name="item[txtSrc]" value="<%=item.txtSrc%>" type="text">
         </label>
 		<label>Original Language:
           <input name="item[orgLang]" value="<%=item.orgLang%>" type="text" required>
         </label>
 		<label>Alternate Language:
-          <input name="item[altLang]" value="<%=item.altLang%>" type="text" required>
+          <input name="item[altLang]" value="<%=item.altLang%>" type="text">
         </label>
 		<label>Genre:
-          <input name="item[genre]" value="<%=item.genre%>" type="text" required>
+          <input name="item[genre]" value="<%=item.genre%>" type="text">
         </label>
 		<label>Associated Character:
-          <input name="item[char]" value="<%=item.char%>" type="text" required>
+          <input name="item[char]" value="<%=item.char%>" type="text">
         </label>
         <label>Gender of Associated Character:
           <input name="item[char]" value="<%=item.charGender%>" type="text">
@@ -156,7 +161,7 @@
           <input name="item[altKey]" value="<%=item.altKey%>" type="text">
         </label>
 		<label>Tempo:
-          <input name="item[tempo]" value="<%=item.tempo%>" type="text" required>
+          <input name="item[tempo]" value="<%=item.tempo%>" type="text">
         </label>
         <label>Metronome Marking:
           <input name="item[metMark]" value="<%=item.metMark%>" type="text">
@@ -165,16 +170,16 @@
           <input name="item[range]" value="<%=item.range%>" type="text" required>
         </label>
 		<label>Tessitura:
-          <input name="item[tess]" value="<%=item.tess%>" type="text" required>
+          <input name="item[tess]" value="<%=item.tess%>" type="text">
         </label>
 		<label>Difficulty:
-          <input name="item[diff]" value="<%=item.diff%>" type="text" required>
+          <input name="item[diff]" value="<%=item.diff%>" type="text">
         </label>
 		<label>Subject:
-          <input name="item[title]" value="<%=item.title%>" type="text" required>
+          <input name="item[title]" value="<%=item.title%>" type="text">
         </label>
 		<label>Mood:
-          <input name="item[mood]" value="<%=item.mood%>" type="text" required>
+          <input name="item[mood]" value="<%=item.mood%>" type="text">
         </label>
         <button>Update</button>
       </form>
