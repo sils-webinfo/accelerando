@@ -61,8 +61,11 @@
         <label>Title:
           <input name="item[songTi]" type="text" required>
         </label>
-        <label>Number:
-          <input name="item[number]" type="number" required>
+        <label>Opus Number:
+          <input name="item[opusNumber]" type="text">
+        </label>
+        <label>Number within Opus:
+          <input name="item[numberWi]" type="number">
         </label>
     	<label>Associated Cycle:
           <input name="item[cycleTi]" type="text" required>
@@ -158,8 +161,8 @@
         <label>Title: 
           <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text" required>
         </label>
-        <label>Number: 
-          <input name="item[cycleNum]" value="<%=item.cycleNum%>" type="number">
+        <label>Opus Number: 
+          <input name="item[opusNumber]" value="<%=item.opusNumber%>" type="text">
         </label>
 		<label>Composer: 
           <input name="item[comp]" value="<%=item.comp%>" type="text" required>
