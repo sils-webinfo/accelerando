@@ -16,7 +16,7 @@
           <dd><span itemprop="songNumber"><%=item.number%></span></dd>
     	  <dt>Associated Cycle</dt>
           <!-- Do we want to define "cycleName" as a property of MusicComposition or extend "name" (the existing property of Thing) to "name/songCycle"? Nesting and extending are confusing. -->
-          <dd><a href="/cycles/<%=item.CycleTi%>"><%=item.CycleTi%></a></dd>
+          <dd><%=item.CycleTi%></a></dd>
     	  <dt>Composition Date</dt>
           <dd><span itemprop="dateCreated"><%=item.compDate%></span></dd>
           <!-- Similar to the new div for MusicComposition above, I created a new div for each of the different kinds of people associated with a MusicComposition (composer and poet) so that I could associate multiple properties with each (name and nationality). -->
