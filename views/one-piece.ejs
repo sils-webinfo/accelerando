@@ -46,14 +46,17 @@
           <dd><span itemprop="alternateLanguage"><%=item.altLang%></span></dd>
     	  <dt>Genre</dt>
           <dd><span itemprop="genre"><%=item.genre%></span></dd>
-          <div itemprop="associatedCharacter" itemscope itemtype="http://schema.org/Person">
+          <div itemprop="associatedCharacter" itemscope itemtype="http://schema.org/Person/Character">
+        <!-- I have extended the Person schema to a narrower type for a character to allow for certain attributes that would apply to a character but would not for an actual person (such as ageRange). -->
         	  <dt>Associated Character</dt>
               <dd><span itemprop="name"><%=item.char%></span></dd>
               <dt>Gender of Associated Character</dt>
               <dd><span itemprop="gender"><%=item.charGender%></span></dd>
               <dt>Age Range of Associated Character</dt>
+                <!-- "ageRange" is a property of Character, a narrower type of Person that we're proposing. -->
               <dd><span itemprop="ageRange"><%=item.charAgeRange%></span></dd>
               <dt>Social Status of Associated Character</dt>
+                <!-- "socialStatus" is a property of Character, a narrower type of Person that we're proposing. -->
               <dd><span itemprop="socialStatus"><%=item.charSocStat%></span></dd>
           </div>
     	  <dt>Key</dt>
