@@ -9,7 +9,7 @@
     <% if (items.length > 0) { %>
     <ul>
       <% items.forEach(function(item) { %>
-      <li><a href="/cycles/<%=item._id%>"><%=item.name%></a></li>
+      <li><a href="/cycles/<%=item._id%>"><%=item.cycleTi%></a></li>
       <% }); %>
     </ul>
     <% } else { %>
@@ -50,7 +50,7 @@
           <input name="item[diff]" type="text">
         </label>
         <label>Notes:
-            <textarea name="item[desc]"cols="80" rows="10" ></textarea>
+            <textarea name="item[desc]"cols="50" rows="10" ></textarea>
         </label>
         <button>Update</button>
       </form>
