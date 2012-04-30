@@ -31,11 +31,7 @@
             <dd><a href="/pieces/<%=item.PieceTi%>"><%=item.PieceTi%></a></dd>
     </div>
 
-///////////////////////////////////////////////////////////////////////////////
-// I did not include "Composition Date" within Cycle because the composition //
-// dates of the individual pieces may be different. I also deleted this from //
-// the "update the cycle" form. ///////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
+<!--I did not include "Composition Date" within Cycle because the composition dates of the individual pieces may be different. I also deleted this from the "update the cycle" form.-->
 
       <dd>
         <% if (related_items.length > 0) { %>
@@ -55,7 +51,7 @@
     </dl>
     <div class="control">
       <h2>Add a new piece</h2>
-            <form method="post" action="/pieces/<%=item._id%>">
+            <form method="post" action="/pieces/">
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
         <label>Title:
@@ -71,7 +67,7 @@
           <input name="item[cycleTi]" type="text">
         </label>
 		<label>Composition Date (numeric):
-          <input name="item[dompDateNum]" type="date">
+          <input name="item[compDateNum]" type="date">
         </label>
         <label>Composition Date (text):
           <input name="item[compDateText]" value="<%=item.compDateText%>" type="text" required>
@@ -142,7 +138,7 @@
 		<label>Mood:
           <input name="item[mood]" type="text">
         </label>
-        <button>Update</button>
+        <button>Add Piece</button>
       </form>
     </div>
 <div>
