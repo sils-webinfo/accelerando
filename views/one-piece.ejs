@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Song: <%=item.songTi%></title>
+    <title>Piece: <%=item.pieceTi%></title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
   <!-- I wasn't sure that we wanted to include <div class="control"> in what we're calling a MusicComposition so I wrapped everything above it in a new <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">. Do we also want to assign this new div a class? Do we want to wrap the whole thing, both the MusicComposition div and the Update Form div in a div whose itemtype="http:schema.org/ItemPage"?-->
     <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
-        <a href="/"><h1>Song</h1></a>
+        <a href="/"><h1>Piece</h1></a>
         <dl>
           <dt>Title</dt>
-          <dd><span itemprop="name"><%=item.songTi%></span></dd>
+          <dd><span itemprop="name"><%=item.pieceTi%></span></dd>
           <dt>Opus Number</dt>
           <!-- "opusNumber" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
           <dd><span itemprop="opusNumber"><%=item.opusNumber%></span></dd>
