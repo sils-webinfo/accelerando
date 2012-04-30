@@ -51,9 +51,9 @@
     </dl>
     <div class="control">
       <h2>Add a new piece</h2>
-            <form method="post" action="/pieces/">
-        <input type="hidden" name="_method" value="put">
-        <!-- The line above tells the server to treat this as a PUT request. -->
+    <form id="create-piece" method="post" action="/pieces/">
+        <input type="hidden" name="item[cycle]" value="<%=item._id%>">
+    <!-- The line above links the piece to be created to this cycle. -->
         <label>Title:
           <input name="item[pieceTi]" type="text" required>
         </label>
@@ -64,19 +64,19 @@
           <input name="item[numberWi]" type="number">
         </label>
     	<label>Associated Cycle:
-          <input name="item[cycleTi]" type="text">
+          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text">
         </label>
 		<label>Composition Date (numeric):
           <input name="item[compDateNum]" type="date">
         </label>
         <label>Composition Date (text):
-          <input name="item[compDateText]" value="<%=item.compDateText%>" type="text" required>
+          <input name="item[compDateText]" type="text" required>
         </label>
 		<label>Composer:
-          <input name="item[comp]" type="text">
+          <input name="item[comp]" value="<%=item.comp%>" type="text">
 		</label>
 		<label>Composer Nationality:
-          <input name="item[compNat]" type="text">
+          <input name="item[compNat]" value="<%=item.compNat%>" type="text">
         </label>
 		<label>Poet:
           <input name="item[poet]" type="text">
@@ -143,7 +143,7 @@
     </div>
 <div>
 <h2>Update the cycle</h2>
-/////What is this script for?////////
+<!--What is this script for?-->
     <script>
       function onFormSubmit(form) {
         form.action = form.action + form.elements['item[id]'].value;
