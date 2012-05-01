@@ -8,8 +8,9 @@
   <!-- The existing definition list was wrapped in a new div with the microdata attributes itemscope and itemtype. Do we want to wrap both the item div and the form div in a div whose itemtype="http:schema.org/ItemPage"?-->
     <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
     <!-- We extended the CreativeWork schema to a narrower type for a music composition to allow for certain attributes that would apply to a music composition but woult not apply to a broader creative work (such as tessitura). -->
-        <a href="/"><h1>Piece</h1></a>
+        <a href="/"><h1>Accelerando</h1></a>
         <dl>
+        <h2>Piece Information<h2>
           <dt>Title</dt>
           <dd><span itemprop="name" itemid="<%=item.pieceID%>"><%=item.pieceTi%></span></dd>
           <dt>Opus Number</dt>
@@ -18,6 +19,8 @@
           <dt>Number within Opus</dt>
           <!-- "numberWiOpus" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="numberWiOpus"><%=item.numberWi%></span></dd>
+          <dt>Piece Description</dt>
+          <dd><span itemprop="description"><%=item.pieceDescription%></span></dd>
     	  <dt>Associated Cycle</dt>
           <!-- TO DO: Ask Ryan about the nesting of cycle within piece. -->
           <dd><%=item.CycleTi%></a></dd>
@@ -112,6 +115,9 @@
         </label>
         <label>Number within Opus:
           <input name="item[numberWi]" value="<%=item.numberWi%>" type="number">
+        </label>
+        <label>
+          <textarea name="item[pieceDescription]"cols="50" rows="10" ><%=item.pieceDescription%></textarea>
         </label>
 		<label>Associated Cycle:
           <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text" required>
