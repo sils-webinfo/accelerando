@@ -5,85 +5,86 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-  <!-- I wasn't sure that we wanted to include <div class="control"> in what we're calling a MusicComposition so I wrapped everything above it in a new <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">. Do we also want to assign this new div a class? Do we want to wrap the whole thing, both the MusicComposition div and the Update Form div in a div whose itemtype="http:schema.org/ItemPage"?-->
+  <!-- The existing definition list was wrapped in a new div with the microdata attributes itemscope and itemtype. Do we want to wrap both the item div and the form div in a div whose itemtype="http:schema.org/ItemPage"?-->
     <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
+    <!-- We extended the CreativeWork schema to a narrower type for a music composition to allow for certain attributes that would apply to a music composition but woult not apply to a broader creative work (such as tessitura). -->
         <a href="/"><h1>Piece</h1></a>
         <dl>
           <dt>Title</dt>
           <dd><span itemprop="name"><%=item.pieceTi%></span></dd>
           <dt>Opus Number</dt>
-          <!-- "opusNumber" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "opusNumber" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="opusNumber"><%=item.opusNumber%></span></dd>
           <dt>Number within Opus</dt>
-          <!-- "numberWiOpus" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "numberWiOpus" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="numberWiOpus"><%=item.numberWi%></span></dd>
     	  <dt>Associated Cycle</dt>
-          <!-- Do we want to define "cycleName" as a property of MusicComposition or extend "name" (the existing property of Thing) to "name/songCycle"? Nesting and extending are confusing. -->
+          <!-- TO DO: Ask Ryan about the nesting of cycle within piece. -->
           <dd><%=item.CycleTi%></a></dd>
     	  <dt>Composition Date (numeric)</dt>
           <dd><span itemprop="dateCreated"><%=item.compDateNum%></span></dd>
           <dt>Composition Date (text)</dt>
           <dd><span itemprop="dateCreated"><%=item.compDateText%></span></dd>
-          <!-- Similar to the new div for MusicComposition above, I created a new div for each of the different kinds of people associated with a MusicComposition (composer and poet) so that I could associate multiple properties with each (name and nationality). -->
+          <!-- If multiple items in a definition list are associated with a different type in schema.org than CreativeWork or a different instance of CreativeWork than a piece, wrap those list items in a div and add the itemscope and itemtype attributes. -->
           <!-- "creator/composer" extends the existing property "creator" of CreativeWork. -->
           <div itemprop="creator/composer" itemscope itemtype="http://schema.org/Person">
         	  <dt>Composer</dt>
-              <dd><span itemprop="name"><%=item.comp%></span></dd>
+              <dd><span itemprop="name" itemid="<%=item.compID%>"><%=item.comp%></span></dd>
         	  <dt>Composer's Nationality</dt>
               <dd><span itemprop="nationality"><%=item.compNat%></span></dd>
           </div>
           <div itemprop="creator/poet" itemscope itemtype="http://schema.org/Person">
         	  <dt>Poet</dt>
-              <dd><span <span itemprop="name"><%=item.poet%></span></dd>
+              <dd><span <span itemprop="name" itemid="%=item.poetID%>"><%=item.poet%></span></dd>
         	  <dt>Poet's Nationality</dt>
               <dd><span itemprop="nationality"><%=item.poetNat%></span></dd>
           </div>
     	  <dt>Instrumentation</dt>
-          <!-- "instrumentation" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "instrumentation" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="instrumentation"><%=item.inst%></span></dd>
     	  <dt>Text Source</dt>
-          <!-- "textSource" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "textSource" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="textSource"><%=item.txtSrc%></span></dd>
     	  <dt>Original Language</dt>
           <dd><span itemprop="inLanguage"><%=item.orgLang%><span></dd>
     	  <dt>Alternate Language</dt>
-          <!-- "alternateLanguage" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "alternateLanguage" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="alternateLanguage"><%=item.altLang%></span></dd>
     	  <dt>Genre</dt>
           <dd><span itemprop="genre"><%=item.genre%></span></dd>
           <div itemprop="associatedCharacter" itemscope itemtype="http://schema.org/Person/Character">
-        <!-- I have extended the Person schema to a narrower type for a character to allow for certain attributes that would apply to a character but would not for an actual person (such as ageRange). -->
+          <!-- We extended the Person schema to a narrower type for a character to allow for certain attributes that would apply to a character but would not apply to an actual person (such as ageRange). -->
         	  <dt>Associated Character</dt>
               <dd><span itemprop="name"><%=item.char%></span></dd>
               <dt>Gender of Associated Character</dt>
               <dd><span itemprop="gender"><%=item.charGender%></span></dd>
               <dt>Age Range of Associated Character</dt>
-                <!-- "ageRange" is a property of Character, a narrower type of Person that we're proposing. -->
+              <!-- "ageRange" is a property of Character, a narrower type of Person that we propose. -->
               <dd><span itemprop="ageRange"><%=item.charAgeRange%></span></dd>
               <dt>Social Status of Associated Character</dt>
-                <!-- "socialStatus" is a property of Character, a narrower type of Person that we're proposing. -->
+              <!-- "socialStatus" is a property of Character, a narrower type of Person that we propose. -->
               <dd><span itemprop="socialStatus"><%=item.charSocStat%></span></dd>
           </div>
     	  <dt>Key</dt>
-          <!-- "key" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "key" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="key"><%=item.key%></span></dd>
           <dt>Alternate Key</dt>
-          <!-- "altKey" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "altKey" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="altKey"><%item.altKey%></span></dd>
     	  <dt>Tempo</dt>
-          <!-- "tempo" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "tempo" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="tempo"><%=item.tempo%></span></dd>
           <dt>Metronome Marking</dt>
-          <!-- "metMark" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "metMark" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="metMark"><%=item.metMark%></span></dd>
     	  <dt>Range</dt>
-          <!-- "range" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "range" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="range"><%=item.range%></span></dd>
     	  <dt>Tessitura</dt>
-          <!-- "tessitura" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "tessitura" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="tessitura"><%=item.tess%></span></dd>
     	  <dt>Difficulty</dt>
-          <!-- "difficulty" is a property of MusicComposition, a narrower type of CreativeWork that we're proposing. -->
+          <!-- "difficulty" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span itemprop="difficulty"><%=item.diff%></span></dd> 
     	  <dt>Subject</dt>
           <dd><span itemprop="about"><%=item.subject%></span></dd>
@@ -118,11 +119,19 @@
 		<label>Composer:
           <input name="item[comp]" value="<%=item.comp%>" type="text">
 		</label>
+        <label>LC Identifier of Composer:
+        <!-- Question for Becky: What is the appropriate type for a URL/URI identifier such as "http://id.loc.gov/authorities/names/n79021425"? -->
+          <input name="item[compID]" value="<%=item.compID%>" type="text">
+        </label>
 		<label>Composer Nationality:
           <input name="item[compNat]" value="<%=item.compNat%>" type="text">
         </label>
 		<label>Poet:
           <input name="item[poet]" value="<%=item.poet%>" type="text">
+        </label>
+        <label>LC Identifier of Poet:
+        <!-- Question for Becky: What is the appropriate type for a URL/URI identifier such as "http://id.loc.gov/authorities/names/n79021425"? -->
+          <input name="item[poetID]" value="<%=item.poetID%>" type="text">
         </label>
 		<label>Poet Nationality:
           <input name="item[poetNat]" value="<%=item.poetNat%>" type="text">
