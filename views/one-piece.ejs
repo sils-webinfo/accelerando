@@ -90,6 +90,9 @@
           <dd><span itemprop="about"><%=item.subject%></span></dd>
     	  <dt>Mood</dt>
           <dd><span itemprop="keywords"><%=item.mood%></span></dd>
+          <!-- "about" in the lines below is a placeholder for now until we hear from Ryan -->
+          <dt><a itemprop="about" itemscope itemtype="http://purl.org/dc/elements/1.1/relation" href="<%=item.imslp%>">IMSLP Resource</a></dt>
+          <dt><a itemprop="about" itemscope itemtype="http://purl.org/dc/elements/1.1/relation" href="<%=item.worldCat%>">WorldCat Query</a></dt>
         </dl>
     </div>
 
@@ -187,6 +190,12 @@
         </label>
 		<label>Mood:
           <input name="item[mood]" value="<%=item.mood%>" type="text">
+        </label>
+        <label>IMSLP Resource:
+          <input name="item[imslp]" value="<%=item.imslp%>" type="text">
+        </label>
+        <label>WorldCat Query:
+          <input name="item[worldCat]" value="<%=item.worldCat%>" type="text">
         </label>
         <button>Update</button>
       </form>
