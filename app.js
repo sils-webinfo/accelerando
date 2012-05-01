@@ -289,7 +289,7 @@ app.get('/pieces/:id',       // TODO: change to suit your URI design.
 
       // Otherwise, get the items potentially related to this item.
       else {
-        
+        var notes = convertMIDINumberToNoteName(42);
         var related_type = 'cycle'; // TODO: change to type of related item.
 
         // Get all items of the specified related type.
