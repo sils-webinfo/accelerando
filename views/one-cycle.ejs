@@ -25,7 +25,7 @@
         <% if (item.description) { %>
 
           <dt>Description</dt>
-            <dd><%=item.description%></dd>
+            <dd><span itemprop="description"><%=item.cycleDescription%></span></dd>
             <% } %>
           <dt>Associated Pieces</dt>
             <dd><a href="/pieces/<%=item.PieceTi%>"><%=item.PieceTi%></a></dd>
@@ -153,6 +153,9 @@
         <label>WorldCat Query:
           <input name="item[worldCat]" type="text">
         </label>
+        <label>Piece Description:
+          <textarea name="item[pieceDescription]"cols="50" rows="10" ></textarea>
+        </label>
         <button>Add Piece</button>
       </form>
     </div>
@@ -196,8 +199,8 @@
 		<label>Difficulty: 
           <input name="item[diff]" value="<%=item.diff%>" type="text">
         </label>
-        <label>Notes:
-            <input name="item[desc]" value="<%=item.desc%>" type="textarea">
+        <label>Description:
+            <textarea name="item[cycleDescription]"cols="50" rows="10" ><%=item.cycleDescription%></textarea>
         </label>
         <button>Update</button>
       </form>
