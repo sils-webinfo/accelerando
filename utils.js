@@ -225,4 +225,9 @@ function authRequired(res,realm) {
     { 'WWW-Authenticate': 'Basic realm="' + realm + '"' }, 401);
 }
 
-
+//function for converting MIDI Numbers.//
+function convertMIDINumberToNoteName(midiNumber) {
+    var notes = [ "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" ];
+        var i = (midiNumber % 12);
+        return notes[i];
+    }
