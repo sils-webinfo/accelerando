@@ -15,16 +15,9 @@
     <% } else { %>
     <div>No cycles have been added.</div>
     <% } %>
-    <div class="control">
+    <div class="admin-forms">
       <h2>Add a new cycle</h2>
-      <script>
-      function onFormSubmit(form) {
-        form.action = form.action + form.elements['item[id]'].value;
-        console.log(form.action);
-        return true;
-      } 
-      </script>
-      <form method="post" action="/cycles/"
+      <form id="create-cycle" method="post" action="/cycles/">
         <label>Title: 
           <input name="item[cycleTi]" type="text" required>
         </label>
