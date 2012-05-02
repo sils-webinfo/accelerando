@@ -7,58 +7,64 @@
   <body>
     <a href="/"><h1>Accelerando</h1></a>
     <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
-        <a href="/"><h1>Cycle</h1></a>
+        <a rel="index" href="/"><h1>Cycle</h1></a>
         <dl>
           <dt>Title</dt>
-          <dd><span itemprop="name" itemid="<%=item.cycleID%>"><%=item.cycleTi%></span></dd>
-          <div itemprop="creator/composer" itemscope itemtype="http://schema.org/Person">
+          <dd><span class="cycleTitle" itemprop="name" itemid="<%=item.cycleID%>"><%=item.cycleTi%></span></dd>
+        
+    <% if (item.comp) { %>
+        <div itemprop="creator/composer" itemscope itemtype="http://schema.org/Person">
               <dt>Composer</dt>
-              <dd><span itemprop="name"><%=item.comp%></span></dd>
+              <dd><span class="composerName" itemprop="name"><%=item.comp%></span></dd>
         	  <dt>Composer's Nationality</dt>
-              <dd><span itemprop="nationality"><%=item.compNat%></span></dd>
+              <dd><span class="composerNationality" itemprop="nationality"><%=item.compNat%></span></dd>
           </div>
+    <% } %>
+    <% if (item.genre) { %>
           <dt>Genre</dt>
-            <dd><span itemprop="genre"><%=item.genre%></span></dd>
+            <dd><span class="genre" itemprop="genre"><%=item.genre%></span></dd>
+    <% } %>
+    <% if (item.diff) { %>
           <dt>Difficulty</dt>
-            <dd><span itemprop="difficulty"><%=item.diff%></span></dd> 
-
-        <% if (item.description) { %>
+            <dd><span class="difficulty" itemprop="difficulty"><%=item.diff%></span></dd> 
+    <% } %>
+    <% if (item.description) { %>
 
           <dt>Description</dt>
-            <dd><span itemprop="description"><%=item.cycleDescription%></span></dd>
-            <% } %>
+            <dd><span class="cycleDescription" itemprop="description"><%=item.cycleDescription%></span></dd>
+    <% } %>
           <dt>Associated Pieces</dt>
-            <dd><a href="/pieces/<%=item.PieceTi%>"><%=item.PieceTi%></a></dd>
-    </div>
-
-<!--I did not include "Composition Date" within Cycle because the composition dates of the individual pieces may be different. I also deleted this from the "update the cycle" form.-->
-
-      <dd>
+          <dd>
         <% if (related_items.length > 0) { %>
         <ul>
           <% related_items.forEach(function(related_item) { %>
           <li>
-            <a href="/pieces/<%=related_item._id%>">
-              <%=related_item.name%>
+            <a rel="piece" href="/pieces/<%=related_item._id%>">
+                <%=related_item.pieceTi%>
             </a>
           </li>
           <% }); %>
         </ul>
-        <% } else { %>
+    <% } else { %>
         No pieces have been added to this cycle.
-        <% } %>
+    <% } %>
       </dd>
+<!--I did not include "Composition Date" within Cycle because the composition dates of the individual pieces may be different. I also deleted this from the "update the cycle" form.-->
     </dl>
-    <div class="control">
+    <div class="admin-forms">
       <h2>Add a new piece</h2>
     <form id="create-piece" method="post" action="/pieces/">
         <input type="hidden" name="item[cycle]" value="<%=item._id%>">
     <!-- The line above links the piece to be created to this cycle. -->
+        <h3>Piece Information</h3>
         <label>Title:
           <input name="item[pieceTi]" type="text" required>
         </label>
         <label>LC Identifier of Piece:
           <input name="item[pieceID]" type="text">
+        </label>
+        <label>Associated Cycle:
+          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text">
         </label>
         <label>Opus Number:
           <input name="item[opusNumber]" type="text">
@@ -66,15 +72,23 @@
         <label>Number within Opus:
           <input name="item[numberWi]" type="number">
         </label>
-    	<label>Associated Cycle:
-          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text">
+    	<label>Genre:
+          <input name="item[genre]" value="<%item.genre%>" type="text">
         </label>
-		<label>Composition Date (numeric):
+     	<label>Original Language:
+          <input name="item[orgLang]" type="text" required>
+        </label>
+		<label>Alternate Language:
+          <input name="item[altLang]" type="text">
+        </label>
+    	<label>Composition Date (numeric):
           <input name="item[compDateNum]" type="date">
         </label>
         <label>Composition Date (text):
           <input name="item[compDateText]" type="text" required>
         </label>
+        
+        <h3>Creator and Source Information</h3>
 		<label>Composer:
           <input name="item[comp]" value="<%=item.comp%>" type="text">
 		</label>
@@ -93,32 +107,31 @@
 		<label>Poet Nationality:
           <input name="item[poetNat]" type="text">
         </label>
-		<label>Instrumentation:
-          <input name="item[inst]" type="text" required>
-        </label>
 		<label>Text Source:
           <input name="item[txtSrc]" type="text">
         </label>
-		<label>Original Language:
-          <input name="item[orgLang]" type="text" required>
-        </label>
-		<label>Alternate Language:
-          <input name="item[altLang]" type="text">
-        </label>
-		<label>Genre:
-          <input name="item[genre]" type="text">
-        </label>
-		<label>Associated Character:
+        <h3>Subject Information</h3>
+        <label>Associated Character:
           <input name="item[char]" type="text">
         </label>
         <label>Gender of Associated Character:
-          <input name="item[char]" type="text">
+          <input name="item[charGender]" type="text">
         </label>
         <label>Age Range of Associated Character:
           <input name="item[charAgeRange]" type="text">
         </label>
         <label>Social Status of Associated Character:
           <input name="item[charSocStat]" type="text">
+        </label>
+        <label>Subject:
+          <input name="item[title]" type="text">
+        </label>
+    	<label>Mood:
+          <input name="item[mood]" type="text">
+        </label>
+        <h3>Musical Characteristics</h3>
+    	<label>Instrumentation:
+          <input name="item[inst]" type="text" required>
         </label>
 		<label>Key: 
           <input name="item[key]" type="text" required>
@@ -141,12 +154,7 @@
 		<label>Difficulty:
           <input name="item[diff]" type="text">
         </label>
-		<label>Subject:
-          <input name="item[title]" type="text">
-        </label>
-		<label>Mood:
-          <input name="item[mood]" type="text">
-        </label>
+		<h3>Related Resources</h3>
         <label>IMSLP Resource:
           <input name="item[imslp]" type="text">
         </label>
@@ -161,18 +169,7 @@
     </div>
 <div>
 <h2>Update the cycle</h2>
-<!--What is this script for?-->
-    <script>
-      function onFormSubmit(form) {
-        form.action = form.action + form.elements['item[id]'].value;
-        console.log(form.action);
-        return true;
-      } 
-      </script>
-      <form id='update-cycle' method="post" action="/cycles/"
-            onsubmit="return onFormSubmit(this);">
-        <!-- The line above dynamically sets the PUT destination when the -->
-        <!-- form is submitted. -------------------------------------------->
+<      <form id="update-cycle" method="post" action="/cycles/<%=item._id%>"
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
         <label>Title: 

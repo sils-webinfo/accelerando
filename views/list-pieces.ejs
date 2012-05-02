@@ -15,10 +15,10 @@
     <% } else { %>
     <div>No pieces found.</div>
     <% } %>
-    <div class="control">
-      <h2>Search for pieces by name</h2>
-      <form method="get" action="/pieces/">
-        <label>Piece name: <input name="name"></label>
+    <div class="search">
+      <h2>Search for pieces by title</h2>
+      <form id="search-pieces" method="get" action="/pieces/">
+        <label>Piece title: <input name="pieceTi"></label>
         <button>Search</button>
       </form>
     </div>
