@@ -1,5 +1,9 @@
 # Accelerando
 
+The Accelerando web service assists users (primarily singers and teachers of singing) in building vocal recital and concert programs. One to 1½ hours in length, a vocal recital or concert program consists of 4-6 sets of pieces. These sets may be composed of a single cycle of pieces or a group of individual pieces that aren’t part of a composer-created cycle. Sets usually focus on one topic such as a composer, a character, a time period, a geographic location, or a theme.
+
+Data in the Accelerando web service is split into a list resource of cycles, a list resource of pieces, resources of individual cycles, and resources of individual pieces. Users will be able to search for pieces and cycles of music that are appropriate for the voice category of the singer in order ultimately to compose an aesthetically pleasing voice recital or concert program.
+
 ## Attribute values: id, class, rel
 
 Notes from Ryan: Your attribute values do a good job of describing the data in your representations. 
