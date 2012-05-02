@@ -10,7 +10,7 @@
     <!-- We extended the CreativeWork schema to a narrower type for a music composition to allow for certain attributes that would apply to a music composition but woult not apply to a broader creative work (such as tessitura). -->
         <a rel="index" href="/"><h1>Accelerando</h1></a>
         <dl>
-        <h2>Piece Information<h2>
+        <h2>Piece Information</h2>
           <dt>Title</dt>
           <dd><span class="pieceTitle" itemprop="name" itemid="<%=item.pieceID%>"><%=item.pieceTi%></span></dd>
     <% if (item.opusNumber) { %>
@@ -201,7 +201,7 @@
           <input name="item[char]" value="<%=item.char%>" type="text">
         </label>
         <label>Gender of Associated Character:
-          <input name="item[char]" value="<%=item.charGender%>" type="text">
+          <input name="item[charGender]" value="<%=item.charGender%>" type="text">
         </label>
         <label>Age Range of Associated Character:
           <input name="item[charAgeRange]" value="<%=item.charAgeRange%>" type="text">
