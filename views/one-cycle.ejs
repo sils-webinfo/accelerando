@@ -9,11 +9,9 @@
     <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
         <a rel="index" href="/"><h1>Cycle</h1></a>
         <dl>
-          <dt>Title</dt>
+          <dt>Cycle Title</dt>
           <dd><span class="cycleTitle" itemprop="name" itemid="<%=item.cycleID%>"><%=item.cycleTi%></span></dd>
-        
     <% if (item.description) { %>
-
           <dt>Cycle Description</dt>
             <dd><span class="cycleDescription" itemprop="description"><%=item.cycleDescription%></span></dd>
     <% } %>
@@ -32,9 +30,9 @@
     <% } else { %>
         No pieces have been added to this cycle.
     <% } %>
-      </dd>
+        </dd>
 <!--I did not include "Composition Date" within Cycle because the composition dates of the individual pieces may be different. I also deleted this from the "update the cycle" form.-->
-    </dl>
+        </dl>
     <div class="admin-forms">
       <h3>Add a new piece</h3>
     <form id="create-piece" method="post" action="/pieces/">
@@ -162,7 +160,7 @@
         <label>LC Identifier of Cycle:
           <input name="item[cycleID]" value="<%=item.cycleID%>" type="text">
         </label>
-        <label>Sycle Description:
+        <label>Cycle Description:
             <textarea name="item[cycleDescription]"cols="50" rows="10" ><%=item.cycleDescription%></textarea>
         </label>
         <button>Update</button>
