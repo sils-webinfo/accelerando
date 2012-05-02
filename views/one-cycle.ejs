@@ -56,11 +56,15 @@
     <form id="create-piece" method="post" action="/pieces/">
         <input type="hidden" name="item[cycle]" value="<%=item._id%>">
     <!-- The line above links the piece to be created to this cycle. -->
+        <h3>Piece Information</h3>
         <label>Title:
           <input name="item[pieceTi]" type="text" required>
         </label>
         <label>LC Identifier of Piece:
           <input name="item[pieceID]" type="text">
+        </label>
+        <label>Associated Cycle:
+          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text">
         </label>
         <label>Opus Number:
           <input name="item[opusNumber]" type="text">
@@ -68,15 +72,23 @@
         <label>Number within Opus:
           <input name="item[numberWi]" type="number">
         </label>
-    	<label>Associated Cycle:
-          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text">
+    	<label>Genre:
+          <input name="item[genre]" value="<%item.genre%>" type="text">
         </label>
-		<label>Composition Date (numeric):
+     	<label>Original Language:
+          <input name="item[orgLang]" type="text" required>
+        </label>
+		<label>Alternate Language:
+          <input name="item[altLang]" type="text">
+        </label>
+    	<label>Composition Date (numeric):
           <input name="item[compDateNum]" type="date">
         </label>
         <label>Composition Date (text):
           <input name="item[compDateText]" type="text" required>
         </label>
+        
+        <h3>Creator and Source Information</h3>
 		<label>Composer:
           <input name="item[comp]" value="<%=item.comp%>" type="text">
 		</label>
@@ -95,22 +107,11 @@
 		<label>Poet Nationality:
           <input name="item[poetNat]" type="text">
         </label>
-		<label>Instrumentation:
-          <input name="item[inst]" type="text" required>
-        </label>
 		<label>Text Source:
           <input name="item[txtSrc]" type="text">
         </label>
-		<label>Original Language:
-          <input name="item[orgLang]" type="text" required>
-        </label>
-		<label>Alternate Language:
-          <input name="item[altLang]" type="text">
-        </label>
-		<label>Genre:
-          <input name="item[genre]" type="text">
-        </label>
-		<label>Associated Character:
+        <h3>Subject Information</h3>
+        <label>Associated Character:
           <input name="item[char]" type="text">
         </label>
         <label>Gender of Associated Character:
@@ -121,6 +122,16 @@
         </label>
         <label>Social Status of Associated Character:
           <input name="item[charSocStat]" type="text">
+        </label>
+        <label>Subject:
+          <input name="item[title]" type="text">
+        </label>
+    	<label>Mood:
+          <input name="item[mood]" type="text">
+        </label>
+        <h3>Musical Characteristics</h3>
+    	<label>Instrumentation:
+          <input name="item[inst]" type="text" required>
         </label>
 		<label>Key: 
           <input name="item[key]" type="text" required>
@@ -143,12 +154,7 @@
 		<label>Difficulty:
           <input name="item[diff]" type="text">
         </label>
-		<label>Subject:
-          <input name="item[title]" type="text">
-        </label>
-		<label>Mood:
-          <input name="item[mood]" type="text">
-        </label>
+		<h3>Related Resources</h3>
         <label>IMSLP Resource:
           <input name="item[imslp]" type="text">
         </label>
