@@ -9,29 +9,12 @@
     <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
         <a rel="index" href="/"><h1>Cycle</h1></a>
         <dl>
-          <dt>Title</dt>
+          <dt>Cycle Title</dt>
           <dd><span class="cycleTitle" itemprop="name" itemid="<%=item.cycleID%>"><%=item.cycleTi%></span></dd>
         
-    <% if (item.comp) { %>
-        <div itemprop="creator/composer" itemscope itemtype="http://schema.org/Person">
-              <dt>Composer</dt>
-              <dd><span class="composerName" itemprop="name"><%=item.comp%></span></dd>
-        	  <dt>Composer's Nationality</dt>
-              <dd><span class="composerNationality" itemprop="nationality"><%=item.compNat%></span></dd>
-          </div>
-    <% } %>
-    <% if (item.genre) { %>
-          <dt>Genre</dt>
-            <dd><span class="genre" itemprop="genre"><%=item.genre%></span></dd>
-    <% } %>
-    <% if (item.diff) { %>
-          <dt>Difficulty</dt>
-            <dd><span class="difficulty" itemprop="difficulty"><%=item.diff%></span></dd> 
-    <% } %>
     <% if (item.description) { %>
-
           <dt>Description</dt>
-            <dd><span class="cycleDescription" itemprop="description"><%=item.cycleDescription%></span></dd>
+          <dd><span class="cycleDescription" itemprop="description"><%=item.cycleDescription%></span></dd>
     <% } %>
           <dt>Associated Pieces</dt>
           <dd>
@@ -48,9 +31,9 @@
     <% } else { %>
         No pieces have been added to this cycle.
     <% } %>
-      </dd>
+        </dd>
 <!--I did not include "Composition Date" within Cycle because the composition dates of the individual pieces may be different. I also deleted this from the "update the cycle" form.-->
-    </dl>
+        </dl>
     <div class="admin-forms">
       <h2>Add a new piece</h2>
     <form id="create-piece" method="post" action="/pieces/">
@@ -133,7 +116,7 @@
     	<label>Instrumentation:
           <input name="item[inst]" type="text" required>
         </label>
-		<label>Key: 
+		<label>Original Key: 
           <input name="item[key]" type="text" required>
         </label>
         <label>Alternate Key:
@@ -178,25 +161,7 @@
         <label>LC Identifier of Cycle:
           <input name="item[cycleID]" value="<%=item.cycleID%>" type="text">
         </label>
-        <label>Opus Number: 
-          <input name="item[opusNumber]" value="<%=item.opusNumber%>" type="text">
-        </label>
-		<label>Composer: 
-          <input name="item[comp]" value="<%=item.comp%>" type="text">
-		</label>
-        <label>LC Identifier of Composer:
-          <input name="item[compID]" value="<%=item.compID%>" type="text">
-        </label>
-		<label>Composer Nationality: 
-          <input name="item[compNat]" value="<%=item.compNat%>" type="text">
-        </label>
-		<label>Genre: 
-          <input name="item[genre]" value="<%=item.genre%>" type="text">
-        </label>
-		<label>Difficulty: 
-          <input name="item[diff]" value="<%=item.diff%>" type="text">
-        </label>
-        <label>Description:
+        <label>Cycle Description:
             <textarea name="item[cycleDescription]"cols="50" rows="10" ><%=item.cycleDescription%></textarea>
         </label>
         <button>Update</button>
