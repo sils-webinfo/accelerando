@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-  <!-- The existing definition list was wrapped in a new div with the microdata attributes itemscope and itemtype. Do we want to wrap both the item div and the form div in a div whose itemtype="http:schema.org/ItemPage"?-->
     <div id=piece itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
     <!-- We extended the CreativeWork schema to a narrower type for a music composition to allow for certain attributes that would apply to a music composition but woult not apply to a broader creative work (such as tessitura). -->
         <a rel="index" href="/"><h1>Accelerando</h1></a>
@@ -13,9 +12,10 @@
         <h2>Piece Information</h2>
           <dt><h3>Title</h3></dt>
           <dd><span class="pieceTitle" itemprop="name" itemid="<%=item.pieceID%>"><%=item.pieceTi%></span></dd>
-          <dt><h3>Associated Cycle</h3></dt>
-          <!-- TO DO: Ask Ryan about the nesting of cycle within piece. -->
-          <dd><span class="cycleTitle"><%=item.CycleTi%></span></a></dd>
+          <div itemprop="http://purl.org/dc/terms/isPartOf" itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
+            <dt><h3>Associated Cycle</h3></dt>
+            <dd><span class="cycleTitle" itemprop="name" itemid="<%=item.cycleID%>"><%=item.CycleTi%></span></dd>
+          </div>
    <% if (item.opusNumber) { %>
           <dt><h3>Opus Number</h3></dt>
           <!-- "opusNumber" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
@@ -34,8 +34,8 @@
           <dd><span class="language" itemprop="inLanguage"><%=item.orgLang%><span></dd>
     <% if (item.altLang) { %>
     	  <dt><h3>Alternate Language</h3></dt>
-          <!-- "alternateLanguage" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
-          <dd><span class="altLanguage" itemprop="alternateLanguage"><%=item.altLang%></span></dd>
+          <!-- "altLanguage" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
+          <dd><span class="altLanguage" itemprop="altLanguage"><%=item.altLang%></span></dd>
     <% } %>
     <% if (item.compDateNum) { %>	 
     	  <dt><h3>Composition Date (numeric)</h3></dt>
@@ -93,7 +93,7 @@
     <% } %>
     <% if (item.subject) { %>
           <dt><h3>Subject</h3></dt>
-          <dd><span class="subject" itemprop="about"><%=item.subject%></span></dd>
+          <dd><span class="subject" itemprop="about" itemid="<%=item.subjectID%>"><%=item.subject%></span></dd>
     <% } %>
     <% if (item.mood) { %>
     	  <dt><h3>Mood</h3></dt>
@@ -137,10 +137,10 @@
   <h3>Related Resources</h3>
           <!-- "about" in the lines below is a placeholder for now until we hear from Ryan -->
     <% if (item.imslp) { %>
-          <dt><a rel="external" itemprop="about" itemscope itemtype="http://purl.org/dc/elements/1.1/relation" href="<%=item.imslp%>">IMSLP Resource</a></dt>
+          <dt><a rel="external" itemprop="http://purl.org/dc/terms/relation" href="<%=item.imslp%>"><h4>IMSLP Resource</h4></a></dt>
     <% } %>
     <% if (item.worldCat) { %>
-        <dt><a rel="external" itemprop="about" itemscope itemtype="http://purl.org/dc/elements/1.1/relation" href="<%=item.worldCat%>">WorldCat Query</a></dt>
+        <dt><a rel="external" itemprop="http://purl.org/dc/terms/relation" href="<%=item.worldCat%>"><h4>WorldCat Query</h4></a></dt>
      <% } %>  
        </dl>
     </div>
@@ -161,6 +161,9 @@
         </label>
       	<label>Associated Cycle:
           <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text" required>
+        </label>
+        <label>LC Identifier of Cycle:
+          <input name="item[cycleID]" value="<%=item.cycleID%>" type="text">
         </label>
         <label>Opus Number:
           <input name="item[opusNumber]" value="<%=item.opusNumber%>" type="text">
@@ -223,7 +226,10 @@
           <input name="item[charSocStat]" value="<%=item.charSocStat%>" type="text">
         </label>
         <label>Subject:
-          <input name="item[title]" value="<%=item.title%>" type="text">
+          <input name="item[subject]" value="<%=item.subject%>" type="text">
+        </label>
+        <label>LC Identifier of Subject:
+          <input name="item[subjectID]" value="<%=item.subjectID%>" type="text">
         </label>
     	<label>Mood:
           <input name="item[mood]" value="<%=item.mood%>" type="text">
