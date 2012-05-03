@@ -4,7 +4,7 @@ The Accelerando web service assists users (primarily singers and teachers of sin
 
 Data in the Accelerando web service is split into a list resource of cycles, a list resource of pieces, resources of individual cycles, and resources of individual pieces. Note that in our service "piece" exists at a conceptually higher level than a particular edition of printed music. That is, a "piece" in the Accelerando web service is analogous to a "work" in the FRBR model rather than an "expression". Users will be able to search for pieces and cycles of music that are appropriate for the voice category of the singer in order ultimately to compose an aesthetically pleasing voice recital or concert program.
 
-## Attribute values: name, id, class, rel
+## Attribute values: id, class, rel
 
 ### id attribute values:
     create-cycle- Applied to a FORM tag. A form for creating a cycle.
@@ -61,7 +61,6 @@ Data in the Accelerando web service is split into a list resource of cycles, a l
     stylesheet- Applied to a LINK tag. A link to the CSS stylesheet.
 
 
-
 ## Accelerando resources
     list of all pieces
     list of pieces with a given characteristic
@@ -70,7 +69,9 @@ Data in the Accelerando web service is split into a list resource of cycles, a l
     list of all cycles with a given characteristic
     a single song cycle
 
-## PUT vs. POST (how URIs are assigned to resources, which create/update forms are located in which resources)
+## PUT vs. POST 
+(how URIs are assigned to resources, which create/update forms are located in which resources)
+    After some debate, we decided that given the complexity of uniform titles for musical compositions, it would not be worth it to use the uniform title in the URIs. Since no other good way of assigning meaningful URIs would be determined, we decided to use POST for creating both cycles and pieces. PUT is only used for updating pages. 
 
 ## Extending schema.org
 
