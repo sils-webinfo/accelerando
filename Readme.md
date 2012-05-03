@@ -70,9 +70,10 @@ Data in the Accelerando web service is split into a list resource of cycles, a l
     a single song cycle
 
 ## PUT vs. POST 
-(how URIs are assigned to resources, which create/update forms are located in which resources)
+####(how URIs are assigned to resources, which create/update forms are located in which resources)
     After some debate, we decided that given the complexity of uniform titles for musical compositions, it would not be worth it to use the uniform title in the URIs. Since no other good way of assigning meaningful URIs would be determined, we decided to use POST for creating both cycles and pieces. PUT is only used for updating pages. 
-
+    New cycles are created on the list-cycles page. New pieces are created on the one-cycle page. This allows us to more easily assoicate a piece with a cycle it belongs to. Update forms are on the pages they update.
+    
 ## Extending schema.org
 
 1.  We extended the existing type CreativeWork to the narrower type MusicComposition [itemtype="http://schema.org/CreativeWork/MusicComposition"], which inherits all the properties of CreativeWork as well as defining new properties specific to MusicComposition. We also extended the Person type to a narrower type Character [itemtype="http://schema.org/Person/Character"], which inherits all the properties of Person as well as defining new properties specific to Character.
