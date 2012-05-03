@@ -2,7 +2,7 @@
 
 The Accelerando web service assists users (primarily singers and teachers of singing) in building vocal recital and concert programs. One to 1½ hours in length, a vocal recital or concert program consists of 4-6 sets of pieces. These sets may be composed of a single cycle of pieces or a group of individual pieces that aren’t part of a composer-created cycle. Sets usually focus on one topic such as a composer, a character, a time period, a geographic location, or a theme.
 
-Data in the Accelerando web service is split into a list resource of cycles, a list resource of pieces, resources of individual cycles, and resources of individual pieces. Note that in our service "piece" exists at a conceptually higher level than a particular edition of printed music. That is, a "piece" in the Accelerando web service is analogous to a "work" in the FRBR model rather than an expression. Users will be able to search for pieces and cycles of music that are appropriate for the voice category of the singer in order ultimately to compose an aesthetically pleasing voice recital or concert program.
+Data in the Accelerando web service is split into a list resource of cycles, a list resource of pieces, resources of individual cycles, and resources of individual pieces. Note that in our service "piece" exists at a conceptually higher level than a particular edition of printed music. That is, a "piece" in the Accelerando web service is analogous to a "work" in the FRBR model rather than an "expression". Users will be able to search for pieces and cycles of music that are appropriate for the voice category of the singer in order ultimately to compose an aesthetically pleasing voice recital or concert program.
 
 ## Attribute values: name, id, class, rel
 
@@ -53,9 +53,9 @@ You also need to define class attributes for your forms that indicate what they 
 
 ## Extending schema.org
 
-1.  Extend existing type to make it more specific. 
+1.  We extended the existing type CreativeWork to the narrower type MusicComposition [itemtype="http://schema.org/CreativeWork/MusicComposition"], which inherits all the properties of CreativeWork as well as defining new properties specific to MusicComposition. We also extended the Person type to a narrower type Character [itemtype="http://schema.org/Person/Character"], which inherits all the properties of Person as well as defining new properties specific to Character.
 
-    #### We extended the existing type CreativeWork to the narrower type MusicComposition [itemtype="http://schema.org/CreativeWork/MusicComposition"], which inherits all the properties of CreativeWork as well as defining new properties specific to MusicComposition. New properties of MusicComposition are documented below:
+    #### Properties of new type MusicComposition:
         itemprop="opusNumber"
         itemprop="numberWiOpus"
         itemprop="alternateLanguage"
@@ -69,19 +69,19 @@ You also need to define class attributes for your forms that indicate what they 
         itemprop="tessitura"
         itemprop="difficulty"
 
-    #### We extended the Person type to a narrower type Character [itemtype="http://schema.org/Person/Character"], which inherits all the properties of Person as well as defining new properties specific to Character. New properties of Character are documented below:
+    #### Properties of new type Character:
         itemprop="ageRange"
         itemprop="socialStatus"
 
-2. Extend existing property to make it more specific.
+2. We extended the existing creator property of CreativeWork for composers and poets.
 
-    #### We extended the existing creator property of CreativeWork for composers and poets. Extensions of existing properties are documented below:
+    ####  Extensions of existing properties:
         itemprop="creator/composer"
         itemprop="creator/poet"
 
-3.  Use properties from non-Schema.org vocabularies.
+3.  We used two properties from non-Schema.org vocabularies.
 
-    #### We used two properties from non-Schema.org vocabularies:
+    #### Dublin Core properties:
         itemprop="http://purl.org/dc/terms/isPartOf"
         itemprop="http://purl.org/dc/terms/relation"
 
