@@ -53,13 +53,36 @@ You also need to define class attributes for your forms that indicate what they 
 
 ## Extending schema.org
 
-### MusicalComposition, a proposed narrower type of CreativeWork
+### Extend existing type to make it more specific. 
 
-### Character, a proposed narrower type of Person
+We extended the existing type CreativeWork to the narrower type MusicComposition [itemtype=“http://schema.org/CreativeWork/MusicComposition”], which inherits all the properties of CreativeWork as well as defining new properties specific to MusicComposition. New properties of MusicComposition are documented below.
 
-### Extending existing properties of CreativeWork
+itemprop=“opusNumber”
+itemprop=“numberWiOpus”
+itemprop=“alternateLanguage”
+itemprop=“textSource”
+itemprop=“instrumentation”
+itemprop=“key”
+itemprop=“altKey”
+itemprop=“tempo”
+itemprop=“metMark”
+itemprop=“range”
+itemprop=“tessitura”
+itemprop=“difficulty”
 
-### Using non-schema.org vocabularies
+We extended the Person type to a narrower type Character [itemtype=“http://schema.org/Person/Character”], which inherits all the properties of Person as well as defining new properties specific to Character. New properties of Character are documented below.
+
+itemprop=“ageRange”
+itemprop=“socialStatus”
+
+### Extend existing property to make it more specific.
+
+We extended the existing creator property of CreativeWork for composers and poets.
+
+itemprop=“creator/composer”
+itemprop=“creator/poet”
+
+### Use properties from non-Schema.org vocabularies.
 
 =========================================
 
