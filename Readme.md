@@ -12,11 +12,11 @@ You need to define rel attributes for the links in your application that indicat
 You also need to define class attributes for your forms that indicate what they do.
 
 ### id attribute values:
-    search - Applied to a DIV tag. A form for searching across pieces.
-    create-piece- Applied to a FORM tag. A form for creating a piece.
     create-cycle- Applied to a FORM tag. A form for creating a cycle.
-    update-piece- Applied to a FORM tag. A form for updating a piece.
+    create-piece- Applied to a FORM tag. A form for creating a piece.
+    search - Applied to a DIV tag. A form for searching across pieces.
     update-cycle- Applied to a FORM tag. A form for updating a cycle.
+    update-piece- Applied to a FORM tag. A form for updating a piece.
 
 ### class attribute values:
     admin-forms - Applied to a DIV tag. A set of FORMs for creating and updating.
@@ -52,9 +52,10 @@ You also need to define class attributes for your forms that indicate what they 
     textSource- Applied to a SPAN tag. This gives the source for the text of the work.
 
 ### rel attribute values:
-    external - Applied to an A tag. A reference to resources external to the accelerando site.
+    cycle- Applied to an A tag. A reference to a cycle page in Accelerando.
+    external - Applied to an A tag. A reference to resources external to the Accelerando site.
     index - Applied to an A tag. A reference to the starting URI for the service.
-    piece - Applied to an A tag. A reference to pieces associated with a particular cycle.
+    piece - Applied to an A tag. A reference to a piece page in Accelerando
     stylesheet- Applied to a LINK tag. A link to the CSS stylesheet.
 
 
