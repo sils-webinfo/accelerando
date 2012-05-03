@@ -6,15 +6,24 @@
   </head>
   <body>
     <a rel="index" href="/"><h1>Accelerando</h1></a>
-    <% if (items.length > 0) { %>
+       <div class="search">
+      <h2>Search for pieces by title</h2>
+      <form id="search-cycles" method="get" action="/cycles/">
+        <label>Cycle title: <input name="cycleTi"></label>
+        <button>Search</button>
+      </form>
+    </div>
+   <div class="list">
+   <% if (items.length > 0) { %>
     <ul class="listCycles">
       <% items.forEach(function(item) { %>
       <li class="oneCycle"><a href="/cycles/<%=item._id%>"><%=item.cycleTi%></a></li>
       <% }); %>
     </ul>
     <% } else { %>
-    <div>No cycles have been added.</div>
+    <span>No cycles have been added.</span>
     <% } %>
+    </div>
     <div class="admin-forms">
       <h2>Add a new cycle</h2>
       <form id="create-cycle" method="post" action="/cycles/">
