@@ -14,7 +14,8 @@ You also need to define class attributes for your forms that indicate what they 
 ### id attribute values:
     create-cycle- Applied to a FORM tag. A form for creating a cycle.
     create-piece- Applied to a FORM tag. A form for creating a piece.
-    search - Applied to a DIV tag. A form for searching across pieces.
+    search-cycle - Applied to a FORM tag. A form for searching across cycles.
+    search-piece - Applied to a FORM tag. A form for searching across pieces.
     update-cycle- Applied to a FORM tag. A form for updating a cycle.
     update-piece- Applied to a FORM tag. A form for updating a piece.
 
@@ -35,6 +36,7 @@ You also need to define class attributes for your forms that indicate what they 
     difficulty- Applied to a SPAN tag. This gives the difficulty of the piece.
     genre- Applied to a SPAN tag. This gives the genre of the work.
     instrumentation- Applied to a SPAN tag. This gives the instrumentation of the piece.
+    list - Applied to a DIV tag. A list of either cycles or pieces.
     listCycles- Applied to a UL tag. A list of cycles. It may have one or more LI.class="oneCycle" descendant elements.
     listPieces - Applied to a UL tag. A list of pieces. It may have one or more LI.class="onePiece" descendant elements.
     metronome- Applied to a SPAN tag. This gives the metronome marking of a piece.
@@ -50,6 +52,7 @@ You also need to define class attributes for your forms that indicate what they 
     poetName- Applied to a SPAN tag. This gives the poet of the work.
     poetNationality- Applied to a SPAN tag. This gives the nationality of the poet.
     range- Applied to a SPAN tag. This gives the range of the piece notated as MIDI numbers.
+    search - Applied to a DIV tag. A form for searching.
     subject- Applied to a SPAN tag. This gives the subject of the piece.
     tempo- Applied to a SPAN tag. This gives the  tempo of the piece.
     tessitura- Applied to a SPAN tag. This gives the tessitura of the piece.
