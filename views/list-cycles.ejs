@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <a href="/"><h1>Accelerando</h1></a>
+    <a rel="index" href="/"><h1>Accelerando</h1></a>
     <% if (items.length > 0) { %>
-    <ul>
+    <ul class="listCycles">
       <% items.forEach(function(item) { %>
-      <li><a href="/cycles/<%=item._id%>"><%=item.cycleTi%></a></li>
+      <li class="oneCycle"><a href="/cycles/<%=item._id%>"><%=item.cycleTi%></a></li>
       <% }); %>
     </ul>
     <% } else { %>
