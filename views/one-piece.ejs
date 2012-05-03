@@ -9,44 +9,44 @@
     <!-- We extended the CreativeWork schema to a narrower type for a music composition to allow for certain attributes that would apply to a music composition but woult not apply to a broader creative work (such as tessitura). -->
         <a rel="index" href="/"><h1>Accelerando</h1></a>
         <dl>
-        <h2>Piece Information</h2>
-          <dt><h3>Title</h3></dt>
+        <h3>Piece Information</h3>
+          <dt>Title</dt>
           <dd><span class="pieceTitle" itemprop="name" itemid="<%=item.pieceID%>"><%=item.pieceTi%></span></dd>
           <div itemprop="http://purl.org/dc/terms/isPartOf" itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
-            <dt><h3>Associated Cycle</h3></dt>
-            <dd><span class="cycleTitle" itemprop="name" itemid="<%=item.cycleID%>"><%=item.CycleTi%></span></dd>
+            <dt>Associated Cycle</dt>    
+            <dd><span class="cycleTitle" itemprop="name" itemid="<%=item.cycleID%>"><%=item.cycleTi%></span></dd>
           </div>
    <% if (item.opusNumber) { %>
-          <dt><h3>Opus Number</h3></dt>
+          <dt>Opus Number</dt>
           <!-- "opusNumber" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="opusNumber" itemprop="opusNumber"><%=item.opusNumber%></span></dd>
     <% } %>
     <% if (item.numberWi) { %>
-          <dt><h3>Number within Opus</h3></dt>
+          <dt>Number within Opus</dt>
           <!-- "numberWiOpus" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="numberWiOpus" itemprop="numberWiOpus"><%=item.numberWi%></span></dd>
     <% } %>
     <% if (item.genre) { %>
-          <dt><h3>Genre</h3></dt>
+          <dt>Genre</dt>
           <dd><span class="genre" itemprop="genre"><%=item.genre%></span></dd>
     <% } %>
-          <dt><h3>Original Language</h3></dt>
-          <dd><span class="language" itemprop="inLanguage"><%=item.orgLang%><span></dd>
+          <dt>Original Language</dt>
+          <dd><span class="originalLanguage" itemprop="inLanguage"><%=item.orgLang%><span></dd>
     <% if (item.altLang) { %>
-    	  <dt><h3>Alternate Language</h3></dt>
+    	  <dt>Alternate Language</dt>
           <!-- "altLanguage" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="altLanguage" itemprop="altLanguage"><%=item.altLang%></span></dd>
     <% } %>
     <% if (item.compDateNum) { %>	 
-    	  <dt><h3>Composition Date (numeric)</h3></dt>
+    	  <dt>Composition Date (numeric)</dt>
           <dd><span class="compDateNum" itemprop="dateCreated"><%=item.compDateNum%></span></dd>
     <% } %>
     <% if (item.compDateText) { %>
-          <dt><h3>Composition Date (text)</h3></dt>
+          <dt>Composition Date (text)</dt>
           <dd><span class="compDateText" itemprop="dateCreated"><%=item.compDateText%></span></dd>
     <% } %>
    <% if (item.pieceDescription) { %>
-          <dt><h3>Piece Description</h3></dt>
+          <dt>Piece Description</dt>
           <dd><span class="pieceDescription" itemprop="description"><%=item.pieceDescription%></span></dd>
     <% } %>
     <br/>
@@ -55,92 +55,92 @@
           <!-- "creator/composer" and "creator/poet" extends the existing property "creator" of CreativeWork. -->
     <% if (item.comp) { %>
           <div itemprop="creator/composer" itemscope itemtype="http://schema.org/Person">
-        	  <dt><h3>Composer</h3></dt>
+        	  <dt>Composer</dt>
               <dd><span class="composerName" itemprop="name" itemid="<%=item.compID%>"><%=item.comp%></span></dd>
-        	  <dt><h3>Composer's Nationality</h3></dt>
+        	  <dt>Composer's Nationality</dt>
               <dd><span class="composerNationality" itemprop="nationality"><%=item.compNat%></span></dd>
           </div>
     <% } %>
     <% if (item.poet) { %>
           <div itemprop="creator/poet" itemscope itemtype="http://schema.org/Person">
-        	  <dt><h3>Poet</h3></dt>
+        	  <dt>Poet</dt>
               <dd><span class="poetName" itemprop="name" itemid="%=item.poetID%>"><%=item.poet%></span></dd>
-        	  <dt><h3>Poet's Nationality</h3></dt>
-              <dd><span class=PoetNationality itemprop="nationality"><%=item.poetNat%></span></dd>
+        	  <dt>Poet's Nationality</dt>
+              <dd><span class="PoetNationality" itemprop="nationality"><%=item.poetNat%></span></dd>
           </div>
     <% } %>
     <% if (item.txtSrc) { %>
-          <dt><h3>Text Source</h3></dt>
+          <dt>Text Source</dt>
           <!-- "textSource" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
-          <dd><span class="textsource" itemprop="textSource"><%=item.txtSrc%></span></dd>
+          <dd><span class="textSource" itemprop="textSource"><%=item.txtSrc%></span></dd>
     <% } %>
     <br/>
     <h3>Subject Information</h3>
     <% if (item.char) { %>
           <div itemprop="associatedCharacter" itemscope itemtype="http://schema.org/Person/Character">
           <!-- We extended the Person schema to a narrower type for a character to allow for certain attributes that would apply to a character but would not apply to an actual person (such as ageRange). -->
-              <dt><h3>Associated Character</h3></dt>
+              <dt>Associated Character</dt>
               <dd><span class="characterName" itemprop="name"><%=item.char%></span></dd>
-              <dt><h3>Gender of Associated Character</h3></dt>
+              <dt>Gender of Associated Character</dt>
               <dd><span class="characterGender" itemprop="gender"><%=item.charGender%></span></dd>
-              <dt><h3>Age Range of Associated Character</h3></dt>
+              <dt>Age Range of Associated Character</dt>
               <!-- "ageRange" is a property of Character, a narrower type of Person that we propose. -->
-              <dd><span class="ageRange" itemprop="ageRange"><%=item.charAgeRange%></span></dd>
-              <dt><h3>Social Status of Associated Character</h3></dt>
+              <dd><span class="characterAgeRange" itemprop="ageRange"><%=item.charAgeRange%></span></dd>
+              <dt>Social Status of Associated Character</dt>
               <!-- "socialStatus" is a property of Character, a narrower type of Person that we propose. -->
-              <dd><span class="socialStatus" itemprop="socialStatus"><%=item.charSocStat%></span></dd>
+              <dd><span class="characterSocialStatus" itemprop="socialStatus"><%=item.charSocStat%></span></dd>
           </div>
     <% } %>
     <% if (item.subject) { %>
-          <dt><h3>Subject</h3></dt>
+          <dt>Subject</dt>
           <dd><span class="subject" itemprop="about" itemid="<%=item.subjectID%>"><%=item.subject%></span></dd>
     <% } %>
     <% if (item.mood) { %>
-    	  <dt><h3>Mood</h3></dt>
+    	  <dt>Mood</dt>
           <dd><span class="mood" itemprop="keywords"><%=item.mood%></span></dd>
     <% } %>
-    
-    <h2>Musical Characteristics</h2>
-          <dt></h3>Instrumentation</h3></dt>
+    <br/>
+    <h3>Musical Characteristics</h3>
+          <dt></>Instrumentation</dt>
           <!-- "instrumentation" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="instrumentation" itemprop="instrumentation"><%=item.inst%></span></dd>
-    	  <dt><h3>Original Key</h3></dt>
+    	  <dt>Original Key</dt>
           <!-- "key" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
-          <dd><span class="key" itemprop="key"><%=item.key%></span></dd>
+          <dd><span class="originalKey" itemprop="key"><%=item.key%></span></dd>
     <% if (item.altKey) { %>
-          <dt><h3>Alternate Key</h3></dt>
+          <dt>Alternate Key</dt>
           <!-- "altKey" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="altKey" itemprop="altKey"><%item.altKey%></span></dd>
     <% } %>
     <% if (item.tempo) { %>
-    	  <dt><h3>Tempo</h3></dt>
+    	  <dt>Tempo</dt>
           <!-- "tempo" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="tempo" itemprop="tempo"><%=item.tempo%></span></dd>
     <% } %>
     <% if (item.metMark) { %>
-          <dt><h3>Metronome Marking</h3></dt>
+          <dt>Metronome Marking</dt>
           <!-- "metMark" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="metronome" itemprop="metMark"><%=item.metMark%></span></dd>
     <% } %>
-    	  <dt><h3>Range</h3></dt>
+    	  <dt>Range</dt>
           <!-- "range" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="range" itemprop="range"><%=item.range%></span></dd>
     <% if (item.tessitura) { %>
-    	  <dt><h3>Tessitura</h3></dt>
+    	  <dt>Tessitura</dt>
           <!-- "tessitura" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="tessitura" itemprop="tessitura"><%=item.tess%></span></dd>
     <% } %>
-    	  <dt><h3>Difficulty</h3></dt>
+    	  <dt>Difficulty</dt>
           <!-- "difficulty" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="difficulty" itemprop="difficulty"><%=item.diff%></span></dd> 
   <br/>
   <h3>Related Resources</h3>
           <!-- "about" in the lines below is a placeholder for now until we hear from Ryan -->
     <% if (item.imslp) { %>
-          <dt><a rel="external" itemprop="http://purl.org/dc/terms/relation" href="<%=item.imslp%>"><h4>IMSLP Resource</h4></a></dt>
+          <dt><a rel="external" itemprop="http://purl.org/dc/terms/relation" href="<%=item.imslp%>">IMSLP Resource</a></dt>
     <% } %>
     <% if (item.worldCat) { %>
-        <dt><a rel="external" itemprop="http://purl.org/dc/terms/relation" href="<%=item.worldCat%>"><h4>WorldCat Query</h4></a></dt>
+        <dt><a rel="external" itemprop="http://purl.org/dc/terms/relation" href="<%=item.worldCat%>">WorldCat Query</a></dt>
      <% } %>  
        </dl>
     </div>
@@ -152,7 +152,7 @@
       <form id="update-piece" method="post" action="/pieces/<%=item._id%>">
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
-        <h3>Piece Information</h3>
+        <h4>Piece Information</h4>
         <label>Title:
           <input name="item[pieceTi]" value="<%=item.pieceTi%>" type="text" required>
         </label>
@@ -160,7 +160,14 @@
           <input name="item[pieceID]" value="<%=item.pieceID%>" type="text">
         </label>
       	<label>Associated Cycle:
-          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text" required>
+                    <select name="item[cycleTi]" required>
+            <% related_items.forEach(function(related_item) { %>
+            <option value="<%=related_item._id%>"
+              <% if (related_item._id === item.cycle) { %>selected<% } %>>
+              <%=related_item.cycleTi%>
+            </option>
+            <% }); %>
+          </select>
         </label>
         <label>LC Identifier of Cycle:
           <input name="item[cycleID]" value="<%=item.cycleID%>" type="text">
@@ -189,7 +196,7 @@
        <label>Piece Description:
           <textarea name="item[pieceDescription]"cols="50" rows="10" ><%=item.pieceDescription%></textarea>
         </label>
-        <h3>Creator and Source Information</h3>
+        <h4>Creator and Source Information</h4>
 		<label>Composer:
           <input name="item[comp]" value="<%=item.comp%>" type="text">
 		</label>
@@ -212,7 +219,7 @@
           <input name="item[txtSrc]" value="<%=item.txtSrc%>" type="text">
         </label>
 
-        <h3>Subject Information</h3>
+        <h4>Subject Information</h4>
        <label>Associated Character:
           <input name="item[char]" value="<%=item.char%>" type="text">
         </label>
@@ -235,7 +242,7 @@
           <input name="item[mood]" value="<%=item.mood%>" type="text">
         </label>
 
-	    <h3>Musical Characteristics</h3>
+	    <h4>Musical Characteristics</h4>
        	<label>Instrumentation:
           <input name="item[inst]" value="<%=item.inst%>" type="text" required>
         </label>
@@ -261,7 +268,7 @@
           <input name="item[diff]" value="<%=item.diff%>" type="text">
         </label>
 
-		<h3>Related Resources</h3>
+		<h4>Related Resources</h4>
         <label>IMSLP Resource:
           <input name="item[imslp]" value="<%=item.imslp%>" type="text">
         </label>
