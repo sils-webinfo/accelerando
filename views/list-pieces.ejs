@@ -6,21 +6,23 @@
   </head>
   <body>
     <a href="/"><h1>Accelerando</h1></a>
-    <% if (items.length > 0) { %>
-    <ul>
-      <% items.forEach(function(item) { %>
-      <li><a href="/pieces/<%=item._id%>"><%=item.pieceTi%></a></li>
-      <% }); %>
-    </ul>
-    <% } else { %>
-    <div>No pieces found.</div>
-    <% } %>
-    <div class="search">
+        <div class="search">
       <h2>Search for pieces by title</h2>
       <form id="search-pieces" method="get" action="/pieces/">
         <label>Piece title: <input name="pieceTi"></label>
         <button>Search</button>
       </form>
+    </div>
+    <div class="list">
+    <% if (items.length > 0) { %>
+    <ul class="listPieces">
+      <% items.forEach(function(item) { %>
+      <li class="onePiece"><a href="/pieces/<%=item._id%>"><%=item.pieceTi%></a></li>
+      <% }); %>
+    </ul>
+    <% } else { %>
+    <span>No pieces found.</span>
+    <% } %>
     </div>
   </body>
 </html>

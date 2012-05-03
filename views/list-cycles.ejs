@@ -5,49 +5,34 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <a href="/"><h1>Accelerando</h1></a>
+    <a rel="index" href="/"><h1>Accelerando</h1></a>
+    <div class="search">
+      <h2>Search for cycles by title:</h2>
+      <form id="search-cycles" method="get" action="/cycles/">
+        <label>Cycle title: <input name="cycleTi"></label>
+        <button>Search</button>
+      </form>
+    </div>
+   <div class="list">
     <% if (items.length > 0) { %>
-    <ul>
-      <% items.forEach(function(item) { %>
-      <li><a href="/cycles/<%=item._id%>"><%=item.cycleTi%></a></li>
-      <% }); %>
-    </ul>
-    <% } else { %>
-    <div>No cycles have been added.</div>
-    <% } %>
+     <ul class="listCycles">
+          <% items.forEach(function(item) { %>
+         <li class="oneCycle"><a href="/cycles/<%=item._id%>"><%=item.cycleTi%></a></li>
+         <% }); %>
+     </ul>
+     <% } else { %>
+     <span>No cycles have been added.</span>
+     <% } %>
+    </div>
     <div class="admin-forms">
       <h2>Add a new cycle</h2>
       <form id="create-cycle" method="post" action="/cycles/">
-        <label>Title: 
+        <label>Cycle Title: 
           <input name="item[cycleTi]" type="text" required>
         </label>
        <label>LC Identifier of Cycle: 
           <input name="item[cycleID]" type="text">
         </label>  
-        <label>Opus Number: 
-          <input name="item[opusNumber]" type="text">
-        </label>
-		<label>Composition Date (text): 
-          <input name="item[cycleCompDateText]" type="text">
-        </label>
-    	<label>Composition Date (numeric): 
-          <input name="item[cycleCompDateNum]" type="date">
-        </label>
-		<label>Composer: 
-          <input name="item[comp]" type="text">
-		</label>
-        <label>LC Identifier of Composer:
-          <input name="item[compID]" type="text">
-        </label>
-		<label>Composer Nationality: 
-          <input name="item[compNat]" type="text">
-        </label>
-		<label>Genre: 
-          <input name="item[genre]" type="text">
-        </label>
-		<label>Difficulty: 
-          <input name="item[diff]" type="text">
-        </label>
         <label>Cycle Decription:
             <textarea name="item[cycleDescription]"cols="50" rows="10" ></textarea>
         </label>

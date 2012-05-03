@@ -5,15 +5,14 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <a href="/"><h1>Accelerando</h1></a>
+    <a rel="index" href="/"><h1>Accelerando</h1></a>
     <div itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
-        <a rel="index" href="/"><h1>Cycle</h1></a>
+        <a href="/cycles/"><h2>Cycles</h2></a>
         <dl>
           <dt>Cycle Title</dt>
-          <dd><span class="cycleTitle" itemprop="name" itemid="<%=item.cycleID%>"><%=item.cycleTi%></span></dd>
-        
+          <dd><span class="cycleTitle" itemprop="name"  <% if (item.cycleID) { %> itemid="<%=item.cycleID%>" <% } %>><%=item.cycleTi%></span></dd>
     <% if (item.description) { %>
-          <dt>Description</dt>
+          <dt>Cycle Description</dt>
           <dd><span class="cycleDescription" itemprop="description"><%=item.cycleDescription%></span></dd>
     <% } %>
           <dt>Associated Pieces</dt>
@@ -35,19 +34,22 @@
 <!--I did not include "Composition Date" within Cycle because the composition dates of the individual pieces may be different. I also deleted this from the "update the cycle" form.-->
         </dl>
     <div class="admin-forms">
-      <h2>Add a new piece</h2>
+      <h3>Add a new piece</h3>
     <form id="create-piece" method="post" action="/pieces/">
         <input type="hidden" name="item[cycle]" value="<%=item._id%>">
     <!-- The line above links the piece to be created to this cycle. -->
-        <h3>Piece Information</h3>
+        <h4>Piece Information</h4>
         <label>Title:
           <input name="item[pieceTi]" type="text" required>
         </label>
         <label>LC Identifier of Piece:
           <input name="item[pieceID]" type="text">
         </label>
-        <label>Associated Cycle:
-          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text">
+        <label>
+            <input name="item[assocCycle]" value="<%=item.cycleTi%>" type="hidden">
+        </label>
+        <label>LC Identifier of Cycle:
+          <input name="item[cycleID]" type="text">
         </label>
         <label>Opus Number:
           <input name="item[opusNumber]" type="text">
@@ -56,7 +58,7 @@
           <input name="item[numberWi]" type="number">
         </label>
     	<label>Genre:
-          <input name="item[genre]" value="<%item.genre%>" type="text">
+          <input name="item[genre]" type="text">
         </label>
      	<label>Original Language:
           <input name="item[orgLang]" type="text" required>
@@ -71,15 +73,15 @@
           <input name="item[compDateText]" type="text" required>
         </label>
         
-        <h3>Creator and Source Information</h3>
+        <h4>Creator and Source Information</h4>
 		<label>Composer:
-          <input name="item[comp]" value="<%=item.comp%>" type="text">
+          <input name="item[comp]" type="text">
 		</label>
         <label>LC Identifier of Composer:
-          <input name="item[compID]" value="<%=item.compID%>" type="text">
+          <input name="item[compID]" type="text">
         </label>
 		<label>Composer Nationality:
-          <input name="item[compNat]" value="<%=item.compNat%>" type="text">
+          <input name="item[compNat]" type="text">
         </label>
 		<label>Poet:
           <input name="item[poet]" type="text">
@@ -93,7 +95,7 @@
 		<label>Text Source:
           <input name="item[txtSrc]" type="text">
         </label>
-        <h3>Subject Information</h3>
+        <h4>Subject Information</h4>
         <label>Associated Character:
           <input name="item[char]" type="text">
         </label>
@@ -107,12 +109,15 @@
           <input name="item[charSocStat]" type="text">
         </label>
         <label>Subject:
-          <input name="item[title]" type="text">
+          <input name="item[subject]" type="text">
+        </label>
+        <label>LC Identifier of Subject:
+          <input name="item[subjectID]" type="text">
         </label>
     	<label>Mood:
           <input name="item[mood]" type="text">
         </label>
-        <h3>Musical Characteristics</h3>
+        <h4>Musical Characteristics</h4>
     	<label>Instrumentation:
           <input name="item[inst]" type="text" required>
         </label>
@@ -137,7 +142,7 @@
 		<label>Difficulty:
           <input name="item[diff]" type="text">
         </label>
-		<h3>Related Resources</h3>
+		<h4>Related Resources</h4>
         <label>IMSLP Resource:
           <input name="item[imslp]" type="text">
         </label>
@@ -145,14 +150,14 @@
           <input name="item[worldCat]" type="text">
         </label>
         <label>Piece Description:
-          <textarea name="item[pieceDescription]"cols="50" rows="10" ></textarea>
+          <textarea name="item[pieceDescription]" cols="50" rows="10" ></textarea>
         </label>
         <button>Add Piece</button>
       </form>
     </div>
 <div>
 <h2>Update the cycle</h2>
-<      <form id="update-cycle" method="post" action="/cycles/<%=item._id%>"
+    <form id="update-cycle" method="post" action="/cycles/<%=item._id%>">
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
         <label>Title: 
@@ -162,10 +167,10 @@
           <input name="item[cycleID]" value="<%=item.cycleID%>" type="text">
         </label>
         <label>Cycle Description:
-            <textarea name="item[cycleDescription]"cols="50" rows="10" ><%=item.cycleDescription%></textarea>
+            <textarea name="item[cycleDescription]" cols="50" rows="10" ><%=item.cycleDescription%></textarea>
         </label>
         <button>Update</button>
-      </form>
+    </form>
 </div>
   </body>
 </html>
