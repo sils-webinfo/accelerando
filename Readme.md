@@ -19,7 +19,7 @@ You also need to define class attributes for your forms that indicate what they 
     update-piece- Applied to a FORM tag. A form for updating a piece.
 
 ### class attribute values:
-    admin-forms - Applied to a DIV tag. A set of FORMs for creating and updating.
+    admin-forms - Applied to a DIV tag. A set of FORMs for creating and updating. 
     altKey- Applied to a SPAN tag. If the work has been transposed into a different key from the original, this gives the alternative key of the work.
     altLanguage- Applied to a SPAN tag. If the work has been translated, this gives the alternative language of the work.
     characterAgeRange- Applied to a SPAN tag. If the piece is from the point of view of a particular character, this gives the approximate age range of that character.
@@ -35,9 +35,13 @@ You also need to define class attributes for your forms that indicate what they 
     difficulty- Applied to a SPAN tag. This gives the difficulty of the piece.
     genre- Applied to a SPAN tag. This gives the genre of the work.
     instrumentation- Applied to a SPAN tag. This gives the instrumentation of the piece.
+    listCycles- Applied to a UL tag. A list of cycles. It may have one or more LI.class="oneCycle" descendant elements.
+    listPieces - Applied to a UL tag. A list of pieces. It may have one or more LI.class="onePiece" descendant elements.
     metronome- Applied to a SPAN tag. This gives the metronome marking of a piece.
     mood- Applied to a SPAN tag. This gives the mood of the piece.
     numberWiOpus - Applied to a SPAN tag. This gives the number of the piece within its corresponding opus.
+    oneCycle - Applied to a LI tag. A single cycle.
+    onePiece- Applied to a LI tag. A single piece.
     opusNumber- Applied to a SPAN tag. This gives the opus number of musical composition.
     originalKey- Applied to a SPAN tag. This gives the original key of the piece.
     originalLanguage- Applied to a SPAN tag. This gives the original language of the work.
