@@ -1,41 +1,96 @@
-# An example web information service
+# Accelerando
 
-This is an example application intended to be used as a starting point for the final project in [INLS 490-186 Web Information Organization](http://aeshin.org/teaching/inls-490-186/2012/sp/).
+The Accelerando web service assists users (primarily singers and teachers of singing) in building vocal recital and concert programs. One to 1½ hours in length, a vocal recital or concert program consists of 4-6 sets of pieces. These sets may be composed of a single cycle of pieces or a group of individual pieces that aren’t part of a composer-created cycle. Sets usually focus on one topic such as a composer, a character, a time period, a geographic location, or a theme.
 
-## Forking this repository
+Data in the Accelerando web service is split into a list resource of cycles, a list resource of pieces, resources of individual cycles, and resources of individual pieces. Note that in our service "piece" exists at a conceptually higher level than a particular edition of printed music. That is, a "piece" in the Accelerando web service is analogous to a "work" in the FRBR model rather than an expression. Users will be able to search for pieces and cycles of music that are appropriate for the voice category of the singer in order ultimately to compose an aesthetically pleasing voice recital or concert program.
 
-You will want to start by [forking](http://help.github.com/fork-a-repo/) this repository so you have your own copy to modify. If you decide to work in a group, I will put a copy of the code in your shared repository. (While it's possible to collaborate with your group by pushing and pulling commits across your two or three separate forks, doing so requires somewhat advanced knowledge of Git and thus isn't expected for this assignment.)
+## Attribute values: name, id, class, rel
 
-If you're working alone, please **rename your GitHub repository** to something more suitable for your service. You can do this by clicking on the ![admin](/sils-webinfo/election/raw/master/doc/img/admin.png) button from your repository's page on GitHub. A one-word, no-spaces name is best. (If you're working in a group the repository will be named after your group).
+Notes from Ryan: Your attribute values do a good job of describing the data in your representations. 
+But you've forgotten to describe the state transitions (links and forms). 
+You need to define rel attributes for the links in your application that indicate what kind of resource is being linked to. 
+You also need to define class attributes for your forms that indicate what they do.
 
-## Cloning your project in Cloud9
+### id attribute values:
+    id="cycle"
+    id="cycleAttributes"
+    id="cycleSongs"
+    id="piece"
+    id="pieceAttributes"
+    id="pieceTranspositions"
 
-*Coming soon*
+### class attribute values:
+    class="idNumber"
+    class="composerName"
+    class="composerNationality"
+    class="poetName"
+    class="poetNationality"
+    class="Key" 
+    class="Range" (notated as MIDI numbers)
+    class="instrumentation"
+    class="textSource"
+    class="language"
+    class="genre"
+    class="subGenre"
+    class="character"
+    class="subject"
+    class="mood"
+    class="tempoMarking" (notated as beats-per-measure)
+    class="difficulty"
+    class="inclusion"
 
-## Modifying the example code
+### rel attribute values:
 
-There are only three places where the example service needs to be modified to implement your own service:
+## Accelerando resources
+    list of all pieces
+    list of pieces with a given characteristic
+    a single piece
+    list of all cycles
+    list of all cycles with a given characteristic
+    a single song cycle
 
-1. [`app.js`](https://github.com/sils-webinfo/election/blob/master/app.js) contains all the logic for handling HTTP requests. You may just need to modify the examples in this file, or you may need to add additional request handlers by copying, pasting, and modifying these examples. The only parts you should *need* to change are marked with with `TODO` comments. In particular, make sure you edit the value of the `USER_OR_GROUP_NAME` variable at the top of this file to match your GitHub user name (if you're working alone) or your group name:
+## PUT vs. POST (how URIs are assigned to resources, which create/update forms are located in which resources)
 
-    ```javascript
-    var USER_OR_GROUP_NAME = ''; // TODO: Insert GitHub username or group name.
-    ```
+## Extending schema.org
 
-1. The [`views`](https://github.com/sils-webinfo/election/tree/master/views) directory contains all the EJS ([Embedded JavaScript](http://embeddedjs.com/)) templates for the service. You will need to create new templates suitable for your application, using these examples as models. The templates should include the metadata describing your application flow and data.
+### Extend existing type to make it more specific. 
 
-1. Finally, you need to edit [`package.json`](https://github.com/sils-webinfo/election/blob/master/package.json) and change the value of the `name` property to whatever you named your project.
+We extended the existing type CreativeWork to the narrower type MusicComposition [itemtype="http://schema.org/CreativeWork/MusicComposition"], which inherits all the properties of CreativeWork as well as defining new properties specific to MusicComposition. New properties of MusicComposition are documented below:
+    itemprop="opusNumber"
+    itemprop="numberWiOpus"
+    itemprop="alternateLanguage"
+    itemprop="textSource"
+    itemprop="instrumentation"
+    itemprop="key"
+    itemprop="altKey"
+    itemprop="tempo"
+    itemprop="metMark"
+    itemprop="range"
+    itemprop="tessitura"
+    itemprop="difficulty"
 
-## Testing your code
+We extended the Person type to a narrower type Character [itemtype="http://schema.org/Person/Character"], which inherits all the properties of Person as well as defining new properties specific to Character. New properties of Character are documented below:
+    itemprop="ageRange"
+    itemprop="socialStatus"
 
-*Coming soon*
+### Extend existing property to make it more specific.
 
-## Troubleshooting
+We extended the existing creator property of CreativeWork for composers and poets. Extensions of existing properties are documented below:
+    itemprop="creator/composer"
+    itemprop="creator/poet"
 
-*Coming soon*
+### Use properties from non-Schema.org vocabularies.
 
-## Deploying to Heroku
+We used two properties from non-Schema.org vocabularies:
+    itemprop="http://purl.org/dc/terms/isPartOf"
+    itemprop="http://purl.org/dc/terms/relation"
 
-*Coming soon*
+## Ideas to implement in later versions of Accelerando
 
+### Use JavaScript to dynamically add new text input fields on demand (say, when the user clicked an "Add New Subject" button).
 
+### Implement a reconciliation service that, given an ambiguous identifier such as "Bach", would suggest unambiguous identifiers such as possble Library of Congress identifiers.
+
+### Use JavaScript to convert inputted MIDI numbers to letter numbers for display such as "Middle C".
+
+### Use HTML to dynamically change allowable values for MIDI numbers associated with notes.
