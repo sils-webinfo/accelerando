@@ -6,11 +6,6 @@ Data in the Accelerando web service is split into a list resource of cycles, a l
 
 ## Attribute values: name, id, class, rel
 
-Notes from Ryan: Your attribute values do a good job of describing the data in your representations. 
-But you've forgotten to describe the state transitions (links and forms). 
-You need to define rel attributes for the links in your application that indicate what kind of resource is being linked to. 
-You also need to define class attributes for your forms that indicate what they do.
-
 ### id attribute values:
     create-cycle- Applied to a FORM tag. A form for creating a cycle.
     create-piece- Applied to a FORM tag. A form for creating a piece.
