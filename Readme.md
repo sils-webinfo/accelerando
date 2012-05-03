@@ -2,7 +2,7 @@
 
 The Accelerando web service assists users (primarily singers and teachers of singing) in building vocal recital and concert programs. One to 1½ hours in length, a vocal recital or concert program consists of 4-6 sets of pieces. These sets may be composed of a single cycle of pieces or a group of individual pieces that aren’t part of a composer-created cycle. Sets usually focus on one topic such as a composer, a character, a time period, a geographic location, or a theme.
 
-Data in the Accelerando web service is split into a list resource of cycles, a list resource of pieces, resources of individual cycles, and resources of individual pieces. Note that in our service "piece" exists at a conceptually higher level than a particular edition of printed music. That is, a "piece" in the Accelerando web service is analogous to a "work" in the FRBR model rather than an "expression". Users will be able to search for pieces and cycles of music that are appropriate for the voice category of the singer in order ultimately to compose an aesthetically pleasing voice recital or concert program.
+Data in the Accelerando web service is split into a list resource of cycles, a list resource of pieces, individual cycle resources, and individual piece resources. Note that in our service "piece" exists at a conceptually higher level than a particular edition of printed music. That is, a "piece" in the Accelerando web service is analogous to a "work" in the FRBR model rather than an "expression". Users will be able to search for pieces and cycles of music that are appropriate for the voice category of the singer in order ultimately to compose an aesthetically pleasing voice recital or concert program.
 
 ## Attribute values: id, class, rel, and name
 
@@ -103,11 +103,13 @@ Data in the Accelerando web service is split into a list resource of cycles, a l
 
 ## Accelerando resources
     list of all pieces
-    list of pieces with a given characteristic
+    list of pieces with a given characteristic*
     a single piece
     list of all cycles
-    list of all cycles with a given characteristic
-    a single song cycle
+    list of all cycles with a given characteristic*
+    a single cycle
+    
+    *not yet fully implemented
 
 ## PUT vs. POST 
 ####(how URIs are assigned to resources, which create/update forms are located in which resources)
@@ -157,3 +159,5 @@ New cycles are created on the list-cycles page. New pieces are created on the on
 3. Use JavaScript to convert inputted MIDI numbers to letter numbers for display such as "Middle C".
 
 4. Use HTML to dynamically change allowable values for MIDI numbers associated with notes.
+
+5. Create ability to search by more characteristics. 
