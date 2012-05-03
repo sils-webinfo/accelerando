@@ -47,6 +47,7 @@
         </label>
         <label>
             <input name="item[assocCycle]" value="<%=item.cycleTi%>" type="hidden">
+        </label>
         <label>LC Identifier of Cycle:
           <input name="item[cycleID]" type="text">
         </label>
@@ -156,7 +157,7 @@
     </div>
 <div>
 <h2>Update the cycle</h2>
-    <form id="update-cycle" method="post" action="/cycles/<%=item._id%>"
+    <form id="update-cycle" method="post" action="/cycles/<%=item._id%>">
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
         <label>Title: 
