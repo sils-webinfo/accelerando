@@ -17,7 +17,7 @@
           <dd><span class="pieceTitle" itemprop="name" <% if (item.pieceID) { %> itemid="<%=item.pieceID%>" <% } %>><%=item.pieceTi%></span></dd>
           <div itemprop="http://purl.org/dc/terms/isPartOf" itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
             <dt>Associated Cycle</dt>    
-            <dd><a href="/cycles/<%=item.cycle%> rel="cycleTitle" itemprop="name" <% if (item.cycleID) { %> itemid="<%=item.cycleID%>" <% } %>><%=assocCycle%></a></dd>
+            <dd><a href="/cycles/<%=item.cycle%>" rel="cycle" itemprop="name" <% if (item.cycleID) { %> itemid="<%=item.cycleID%>" <% } %>><%=item.assocCycle%></a></dd>
           </div>
    <% if (item.opusNumber) { %>
           <dt>Opus Number</dt>
@@ -114,7 +114,7 @@
     <% } %>
     <% if (item.subject) { %>
           <dt>Subject</dt>
-          <dd><span class="subject" itemprop="about" <% if (item.subjectID) { %> itemid="<%=item.subjectID%>" <% } %>>><%=item.subject%></span></dd>
+          <dd><span class="subject" itemprop="about" <% if (item.subjectID) { %> itemid="<%=item.subjectID%>" <% } %>><%=item.subject%></span></dd>
     <% } %>
     <% if (item.mood) { %>
     	  <dt>Mood</dt>
