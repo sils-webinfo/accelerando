@@ -10,7 +10,7 @@
         <h1>Cycle</h1>
         <dl>
           <dt>Cycle Title</dt>
-          <dd><span class="cycleTitle" itemprop="name" itemid="<%=item.cycleID%>"><%=item.cycleTi%></span></dd>
+          <dd><span class="cycleTitle" itemprop="name"  <% if (item.description) { %> itemid="<%=item.cycleID%>" <% } %>><%=item.cycleTi%></span></dd>
     <% if (item.description) { %>
           <dt>Cycle Description</dt>
           <dd><span class="cycleDescription" itemprop="description"><%=item.cycleDescription%></span></dd>
