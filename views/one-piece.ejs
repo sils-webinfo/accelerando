@@ -11,10 +11,10 @@
         <dl>
         <h3>Piece Information</h3>
           <dt>Title</dt>
-          <dd><span class="pieceTitle" itemprop="name" itemid="<%=item.pieceID%>"><%=item.pieceTi%></span></dd>
+          <dd><span class="pieceTitle" itemprop="name" <% if (item.pieceID) { %> itemid="<%=item.pieceID%>" <% } %>><%=item.pieceTi%></span></dd>
           <div itemprop="http://purl.org/dc/terms/isPartOf" itemscope itemtype="http://schema.org/CreativeWork/MusicComposition">
             <dt>Associated Cycle</dt>    
-            <dd><span class="cycleTitle" itemprop="name" itemid="<%=item.cycleID%>"><%=item.cycleTi%></span></dd>
+            <dd><span class="cycleTitle" itemprop="name" <% if (item.cycleID) { %> itemid="<%=item.cycleID%>" <% } %>><%=item.cycleTi%></span></dd>
           </div>
    <% if (item.opusNumber) { %>
           <dt>Opus Number</dt>
@@ -56,7 +56,7 @@
     <% if (item.comp) { %>
           <div itemprop="creator/composer" itemscope itemtype="http://schema.org/Person">
         	  <dt>Composer</dt>
-              <dd><span class="composerName" itemprop="name" itemid="<%=item.compID%>"><%=item.comp%></span></dd>
+              <dd><span class="composerName" itemprop="name" <% if (item.compID) { %> itemid="<%=item.compID%>" <% } %>><%=item.comp%></span></dd>
         	  <dt>Composer's Nationality</dt>
               <dd><span class="composerNationality" itemprop="nationality"><%=item.compNat%></span></dd>
           </div>
@@ -64,7 +64,7 @@
     <% if (item.poet) { %>
           <div itemprop="creator/poet" itemscope itemtype="http://schema.org/Person">
         	  <dt>Poet</dt>
-              <dd><span class="poetName" itemprop="name" itemid="%=item.poetID%>"><%=item.poet%></span></dd>
+              <dd><span class="poetName" itemprop="name" <% if (item.poetID) { %> itemid="<%=item.poetID%>" <% } %>><%=item.poet%></span></dd>
         	  <dt>Poet's Nationality</dt>
               <dd><span class="PoetNationality" itemprop="nationality"><%=item.poetNat%></span></dd>
           </div>
@@ -93,7 +93,7 @@
     <% } %>
     <% if (item.subject) { %>
           <dt>Subject</dt>
-          <dd><span class="subject" itemprop="about" itemid="<%=item.subjectID%>"><%=item.subject%></span></dd>
+          <dd><span class="subject" itemprop="about" <% if (item.subjectID) { %> itemid="<%=item.subjectID%>" <% } %>>><%=item.subject%></span></dd>
     <% } %>
     <% if (item.mood) { %>
     	  <dt>Mood</dt>
