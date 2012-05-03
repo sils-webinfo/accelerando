@@ -61,6 +61,46 @@ Data in the Accelerando web service is split into a list resource of cycles, a l
     stylesheet- Applied to a LINK tag. A link to the CSS stylesheet.
 
 
+### name attribute values:
+    _method - Applied to an INPUT[text] element. Used to specify a non-HTML method (such as PUT).
+    item[altKey] - Applied to an INPUT[text] element. An alternative key for the piece.
+    item[altLang] - Applied to an INPUT[text] element. An alternative language (e.g. a translation) of the piece.
+    item[char] - Applied to an INPUT[text] element. When the piece is in character, the name of the character.
+    item[charAgeRange] - Applied to an INPUT[text] element. When the piece is in character, the age range of the character.
+    item[charGender] - Applied to an INPUT[text] element. When the piece is in character, the gender of the character.
+    item[charSocStat] - Applied to an INPUT[text] element. When the piece is in character, the social status of the character.
+    item[comp] - Applied to an INPUT[text] element. The name of the composer.
+    item[compDateNum] - Applied to an INPUT[date] element. The composition date of the piece in a numerical date format.
+    item[compDateText] - Applied to an INPUT[text] element. A human readable text form of the composition date.
+    item[compID] -  Applied to an INPUT[text] element. The Library of Congress authority file for the composer.
+    item[compNat] - Applied to an INPUT[text] element. The nationality of the composer.
+    item[cycleDescription] - Applied to an TEXTAREA element. A description of the cycle.
+    item[cycleID] - Applied to an INPUT[text] element. The Library of Congress authority file for the cycle.
+    item[cycleTi] - Applied to an INPUT[text] element. The title of the cycle.
+    item[diff] - Applied to an INPUT[text] element. The difficulty of the piece.
+    item[genre]- Applied to an INPUT[text] element. The genre of the piece.
+    item[imslp] - Applied to an INPUT[text] element. A URI for the IMSLP resources related to the piece.
+    item[inst] - Applied to an INPUT[text] element. The instrumentation of the piece.
+    item[key] - Applied to an INPUT[text] element. The original key of the piece.
+    item[metMark] - Applied to an INPUT[text] element. The metronome marking for the piece.
+    item[mood] - Applied to an INPUT[text] element. The mood of the piece.
+    item[numberWi] - Applied to an INPUT[number] element. The piece number within the opus.
+    item[opusNumber] - Applied to an INPUT[text] element. The opus number.
+    item[orgLang] - Applied to an INPUT[text] element. The original language of the piece.
+    item[pieceDescription] - Applied to an TEXTAREA element. A description of the piece.
+    item[pieceID] - Applied to an INPUT[text] element. The Library of Congress authority file for the piece.
+    item[pieceTi] - Applied to an INPUT[text] element. The title for the piece.
+    item[poet] - Applied to an INPUT[text] element. The name of the poet.
+    item[poetID] -  Applied to an INPUT[text] element. The Library of Congress authority file for the poet.
+    item[poetNat] - Applied to an INPUT[text] element. The nationality of the poet. 
+    item[range] - Applied to an INPUT[text] element. The range of the piece in terms of MIDI numbers.
+    item[subject] - Applied to an INPUT[text] element. The subject of the piece.
+    item[subjectID] -  Applied to an INPUT[text] element. The Library of Congress authority file for the subject.
+    item[tempo] - Applied to an INPUT[text] element. The tempo of the piece.
+    item[tess] - Applied to an INPUT[text] element. The tessitura of the piece.
+    item[txtSrc] - Applied to an INPUT[text] element. A source or inspiration for the text of the piece.
+    item[worldCat] - Applied to an INPUT[text] element. A URI for a WorldCat query on the title of the piece.
+
 ## Accelerando resources
     list of all pieces
     list of pieces with a given characteristic
