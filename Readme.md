@@ -4,7 +4,7 @@ The Accelerando web service assists users (primarily singers and teachers of sin
 
 Data in the Accelerando web service is split into a list resource of cycles, a list resource of pieces, resources of individual cycles, and resources of individual pieces. Note that in our service "piece" exists at a conceptually higher level than a particular edition of printed music. That is, a "piece" in the Accelerando web service is analogous to a "work" in the FRBR model rather than an "expression". Users will be able to search for pieces and cycles of music that are appropriate for the voice category of the singer in order ultimately to compose an aesthetically pleasing voice recital or concert program.
 
-## Attribute values: id, class, rel
+## Attribute values: id, class, rel, and name
 
 ### id attribute values:
     create-cycle- Applied to a FORM tag. A form for creating a cycle.
