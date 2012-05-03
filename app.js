@@ -60,7 +60,7 @@ app.put('/pieces/:id',      // TODO: change to suit your URI design.
 // Handling PUT to update cycle resource. /////////////////////
 // Here we update a cycle using the ID specified in the URI. /////////
 ////////////////////////////////////////////////////////////////////////////////
-app.put('/cycle/:id',      // TODO: change to suit your URI design.
+app.put('/cycles/:id',      // TODO: change to suit your URI design.
   function(req, res) {
   
     // Get the item ID from the URI.
@@ -289,7 +289,7 @@ app.get('/pieces/:id',       // TODO: change to suit your URI design.
 
       // Otherwise, get the items potentially related to this item.
       else {
-        var notes = convertMIDINumberToNoteName(42);
+      
         var related_type = 'cycle'; // TODO: change to type of related item.
 
         // Get all items of the specified related type.
