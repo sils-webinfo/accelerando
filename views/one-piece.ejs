@@ -88,7 +88,9 @@
     </tr>
     <tr>
     <td>
+    <% if (item.char || item.charGender || item.charAgeRange || item.charSocStat || item.subject || item.mood) { %>
     <h3>Subject Information</h3>
+    <% } %>
     <% if (item.char) { %>
           <div itemprop="associatedCharacter" itemscope itemtype="http://schema.org/Person/Character">
           <!-- We extended the Person schema to a narrower type for a character to allow for certain attributes that would apply to a character but would not apply to an actual person (such as ageRange). -->
@@ -161,7 +163,9 @@
   </tr>
   <tr>
   <td>
+  <% if (item.imslp || item.worldCat) { %>
   <h3>Related Resources</h3>
+  <% } %>
           <!-- "about" in the lines below is a placeholder for now until we hear from Ryan -->
     <% if (item.imslp) { %>
           <dt><a rel="external" itemprop="http://purl.org/dc/terms/relation" href="<%=item.imslp%>">IMSLP Resource</a></dt>
