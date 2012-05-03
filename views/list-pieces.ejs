@@ -6,6 +6,14 @@
   </head>
   <body>
     <a href="/"><h1>Accelerando</h1></a>
+        <div class="search">
+      <h2>Search for pieces by title</h2>
+      <form id="search-pieces" method="get" action="/pieces/">
+        <label>Piece title: <input name="pieceTi"></label>
+        <button>Search</button>
+      </form>
+    </div>
+    <div class="list">
     <% if (items.length > 0) { %>
     <ul class="listPieces">
       <% items.forEach(function(item) { %>
@@ -13,14 +21,8 @@
       <% }); %>
     </ul>
     <% } else { %>
-    <div>No pieces found.</div>
+    <span>No pieces found.</span>
     <% } %>
-    <div class="search">
-      <h2>Search for pieces by title</h2>
-      <form id="search-pieces" method="get" action="/pieces/">
-        <label>Piece title: <input name="pieceTi"></label>
-        <button>Search</button>
-      </form>
     </div>
   </body>
 </html>
