@@ -10,7 +10,7 @@
         <h1>Cycle</h1>
         <dl>
           <dt>Cycle Title</dt>
-          <dd><span class="cycleTitle" itemprop="name"  <% if (item.description) { %> itemid="<%=item.cycleID%>" <% } %>><%=item.cycleTi%></span></dd>
+          <dd><span class="cycleTitle" itemprop="name"  <% if (item.cycleID) { %> itemid="<%=item.cycleID%>" <% } %>><%=item.cycleTi%></span></dd>
     <% if (item.description) { %>
           <dt>Cycle Description</dt>
           <dd><span class="cycleDescription" itemprop="description"><%=item.cycleDescription%></span></dd>
@@ -45,9 +45,8 @@
         <label>LC Identifier of Piece:
           <input name="item[pieceID]" type="text">
         </label>
-        <label>Associated Cycle:
-          <input name="item[cycleTi]" value="<%=item.cycleTi%>" type="text">
-        </label>
+        <label>
+            <input name="item[assocCycle]" value="<%=item.cycleTi%>" type="hidden">
         <label>LC Identifier of Cycle:
           <input name="item[cycleID]" type="text">
         </label>
