@@ -11,7 +11,6 @@
         <dl>
           <dt>Cycle Title</dt>
           <dd><span class="cycleTitle" itemprop="name" itemid="<%=item.cycleID%>"><%=item.cycleTi%></span></dd>
-        
     <% if (item.description) { %>
           <dt>Cycle Description</dt>
           <dd><span class="cycleDescription" itemprop="description"><%=item.cycleDescription%></span></dd>
@@ -35,11 +34,11 @@
 <!--I did not include "Composition Date" within Cycle because the composition dates of the individual pieces may be different. I also deleted this from the "update the cycle" form.-->
         </dl>
     <div class="admin-forms">
-      <h2>Add a new piece</h2>
+      <h3>Add a new piece</h3>
     <form id="create-piece" method="post" action="/pieces/">
         <input type="hidden" name="item[cycle]" value="<%=item._id%>">
     <!-- The line above links the piece to be created to this cycle. -->
-        <h3>Piece Information</h3>
+        <h4>Piece Information</h4>
         <label>Title:
           <input name="item[pieceTi]" type="text" required>
         </label>
@@ -74,7 +73,7 @@
           <input name="item[compDateText]" type="text" required>
         </label>
         
-        <h3>Creator and Source Information</h3>
+        <h4>Creator and Source Information</h4>
 		<label>Composer:
           <input name="item[comp]" type="text">
 		</label>
@@ -96,7 +95,7 @@
 		<label>Text Source:
           <input name="item[txtSrc]" type="text">
         </label>
-        <h3>Subject Information</h3>
+        <h4>Subject Information</h4>
         <label>Associated Character:
           <input name="item[char]" type="text">
         </label>
@@ -118,7 +117,7 @@
     	<label>Mood:
           <input name="item[mood]" type="text">
         </label>
-        <h3>Musical Characteristics</h3>
+        <h4>Musical Characteristics</h4>
     	<label>Instrumentation:
           <input name="item[inst]" type="text" required>
         </label>
@@ -143,7 +142,7 @@
 		<label>Difficulty:
           <input name="item[diff]" type="text">
         </label>
-		<h3>Related Resources</h3>
+		<h4>Related Resources</h4>
         <label>IMSLP Resource:
           <input name="item[imslp]" type="text">
         </label>

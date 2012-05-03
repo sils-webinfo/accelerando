@@ -49,8 +49,8 @@
           <dt><h3>Piece Description</h3></dt>
           <dd><span class="pieceDescription" itemprop="description"><%=item.pieceDescription%></span></dd>
     <% } %>
-    
-    <h2>Creator and Source Information</h2>
+    <br/>
+    <h3>Creator and Source Information</h3>
           <!-- If multiple items in a definition list are associated with a different type in schema.org than CreativeWork or a different instance of CreativeWork than a piece, wrap those list items in a div and add the itemscope and itemtype attributes. -->
           <!-- "creator/composer" and "creator/poet" extends the existing property "creator" of CreativeWork. -->
     <% if (item.comp) { %>
@@ -74,8 +74,8 @@
           <!-- "textSource" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="textsource" itemprop="textSource"><%=item.txtSrc%></span></dd>
     <% } %>
-    
-    <h2>Subject Information</h2>
+    <br/>
+    <h3>Subject Information</h3>
     <% if (item.char) { %>
           <div itemprop="associatedCharacter" itemscope itemtype="http://schema.org/Person/Character">
           <!-- We extended the Person schema to a narrower type for a character to allow for certain attributes that would apply to a character but would not apply to an actual person (such as ageRange). -->
@@ -133,8 +133,8 @@
     	  <dt><h3>Difficulty</h3></dt>
           <!-- "difficulty" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="difficulty" itemprop="difficulty"><%=item.diff%></span></dd> 
-  
-  <h2>Related Resources</h2>
+  <br/>
+  <h3>Related Resources</h3>
           <!-- "about" in the lines below is a placeholder for now until we hear from Ryan -->
     <% if (item.imslp) { %>
           <dt><a rel="external" itemprop="http://purl.org/dc/terms/relation" href="<%=item.imslp%>"><h4>IMSLP Resource</h4></a></dt>
@@ -144,9 +144,11 @@
      <% } %>  
        </dl>
     </div>
-
+<br/>
+<br/>
+<br/>
     <div class="admin-forms">
-      <h2>Update piece</h2>
+      <h3>Update piece</h3>
       <form id="update-piece" method="post" action="/pieces/<%=item._id%>">
         <input type="hidden" name="_method" value="put">
         <!-- The line above tells the server to treat this as a PUT request. -->
@@ -184,7 +186,7 @@
         <label>Composition Date (text):
           <input name="item[compDateText]" value="<%=item.compDateText%>" type="text" required>
         </label>
-       <label>
+       <label>Piece Description:
           <textarea name="item[pieceDescription]"cols="50" rows="10" ><%=item.pieceDescription%></textarea>
         </label>
         <h3>Creator and Source Information</h3>
@@ -209,6 +211,7 @@
      	<label>Text Source:
           <input name="item[txtSrc]" value="<%=item.txtSrc%>" type="text">
         </label>
+
         <h3>Subject Information</h3>
        <label>Associated Character:
           <input name="item[char]" value="<%=item.char%>" type="text">
@@ -231,6 +234,7 @@
     	<label>Mood:
           <input name="item[mood]" value="<%=item.mood%>" type="text">
         </label>
+
 	    <h3>Musical Characteristics</h3>
        	<label>Instrumentation:
           <input name="item[inst]" value="<%=item.inst%>" type="text" required>
@@ -256,6 +260,7 @@
 		<label>Difficulty:
           <input name="item[diff]" value="<%=item.diff%>" type="text">
         </label>
+
 		<h3>Related Resources</h3>
         <label>IMSLP Resource:
           <input name="item[imslp]" value="<%=item.imslp%>" type="text">
