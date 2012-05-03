@@ -62,16 +62,20 @@
           <div itemprop="creator/composer" itemscope itemtype="http://schema.org/Person">
         	  <dt>Composer</dt>
               <dd><span class="composerName" itemprop="name" <% if (item.compID) { %> itemid="<%=item.compID%>" <% } %>><%=item.comp%></span></dd>
-        	  <dt>Composer's Nationality</dt>
+        	<% if (item.compNat) { %> 
+             <dt>Composer's Nationality</dt>
               <dd><span class="composerNationality" itemprop="nationality"><%=item.compNat%></span></dd>
+            <% } %>
           </div>
     <% } %>
     <% if (item.poet) { %>
           <div itemprop="creator/poet" itemscope itemtype="http://schema.org/Person">
         	  <dt>Poet</dt>
               <dd><span class="poetName" itemprop="name" <% if (item.poetID) { %> itemid="<%=item.poetID%>" <% } %>><%=item.poet%></span></dd>
-        	  <dt>Poet's Nationality</dt>
+        	  <% if (item.poet) { %>
+              <dt>Poet's Nationality</dt>
               <dd><span class="PoetNationality" itemprop="nationality"><%=item.poetNat%></span></dd>
+              <% } %>
           </div>
     <% } %>
     <% if (item.txtSrc) { %>
@@ -90,14 +94,20 @@
           <!-- We extended the Person schema to a narrower type for a character to allow for certain attributes that would apply to a character but would not apply to an actual person (such as ageRange). -->
               <dt>Associated Character</dt>
               <dd><span class="characterName" itemprop="name"><%=item.char%></span></dd>
+              <% if (item.charGender) { %>
               <dt>Gender of Associated Character</dt>
               <dd><span class="characterGender" itemprop="gender"><%=item.charGender%></span></dd>
+              <% } %>
+              <% if (item.charAgeRange) { %>
               <dt>Age Range of Associated Character</dt>
               <!-- "ageRange" is a property of Character, a narrower type of Person that we propose. -->
               <dd><span class="characterAgeRange" itemprop="ageRange"><%=item.charAgeRange%></span></dd>
+              <% } %>
+              <% if (item.charSocStat) { %>
               <dt>Social Status of Associated Character</dt>
               <!-- "socialStatus" is a property of Character, a narrower type of Person that we propose. -->
               <dd><span class="characterSocialStatus" itemprop="socialStatus"><%=item.charSocStat%></span></dd>
+              <% } %>
           </div>
     <% } %>
     <% if (item.subject) { %>
@@ -183,7 +193,7 @@
           <input name="item[pieceID]" value="<%=item.pieceID%>" type="text">
         </label>
       	<label>Associated Cycle:
-                    <select name="item[cycleTi]" required>
+                    <select name="item[cycle]" required>
             <% related_items.forEach(function(related_item) { %>
             <option value="<%=related_item._id%>"
               <% if (related_item._id === item.cycle) { %>selected<% } %>>
