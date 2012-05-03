@@ -12,34 +12,52 @@ You need to define rel attributes for the links in your application that indicat
 You also need to define class attributes for your forms that indicate what they do.
 
 ### id attribute values:
-    id="cycle"
-    id="cycleAttributes"
-    id="cycleSongs"
-    id="piece"
-    id="pieceAttributes"
-    id="pieceTranspositions"
+    search - Applied to a DIV tag. A form for searching across pieces.
+    create-piece- Applied to a FORM tag. A form for creating a piece.
+    create-cycle- Applied to a FORM tag. A form for creating a cycle.
+    update-piece- Applied to a FORM tag. A form for updating a piece.
+    update-cycle- Applied to a FORM tag. A form for updating a cycle.
 
 ### class attribute values:
-    class="idNumber"
-    class="composerName"
-    class="composerNationality"
-    class="poetName"
-    class="poetNationality"
-    class="Key" 
-    class="Range" (notated as MIDI numbers)
-    class="instrumentation"
-    class="textSource"
-    class="language"
-    class="genre"
-    class="subGenre"
-    class="character"
-    class="subject"
-    class="mood"
-    class="tempoMarking" (notated as beats-per-measure)
-    class="difficulty"
-    class="inclusion"
+    admin-forms - Applied to a DIV tag. A set of FORMs for creating and updating.
+    altKey- Applied to a SPAN tag. If the work has been transposed into a different key from the original, this gives the alternative key of the work.
+    altLanguage- Applied to a SPAN tag. If the work has been translated, this gives the alternative language of the work.
+    characterAgeRange- Applied to a SPAN tag. If the piece is from the point of view of a particular character, this gives the approximate age range of that character.
+    characterGender- Applied to a SPAN tag. If the piece is from the point of view of a particular character, this gives the gender of that character.
+    characterName- Applied to a SPAN tag. If the piece is from the point of view of a particular character, this gives the name of that character.
+    characterSocialStatus- Applied to a SPAN tag. If the piece is from the point of view of a particular character, this gives the social status of that character.
+    compDateNum- Applied to a SPAN tag. This gives the composition date of the work in a numerical (HTML date) format.
+    compDateText- Applied to a SPAN tag. This gives the composition date of the work in a human readable text format.
+    composerName- Applied to a SPAN tag. This gives the name of the composer of the work.
+    composerNationality- Applied to a SPAN tag. This gives the nationality of the composer.
+    cycleDescription-  Applied to a SPAN tag. This gives the description of the cycle.
+    cycleTitle- Applied to a SPAN tag. This gives the title of the cycle.
+    difficulty- Applied to a SPAN tag. This gives the difficulty of the piece.
+    genre- Applied to a SPAN tag. This gives the genre of the work.
+    instrumentation- Applied to a SPAN tag. This gives the instrumentation of the piece.
+    metronome- Applied to a SPAN tag. This gives the metronome marking of a piece.
+    mood- Applied to a SPAN tag. This gives the mood of the piece.
+    numberWiOpus - Applied to a SPAN tag. This gives the number of the piece within its corresponding opus.
+    opusNumber- Applied to a SPAN tag. This gives the opus number of musical composition.
+    originalKey- Applied to a SPAN tag. This gives the original key of the piece.
+    originalLanguage- Applied to a SPAN tag. This gives the original language of the work.
+    pieceDescription - Applied to a SPAN tag. This gives the description of the piece.
+    pieceTitle- Applied to a SPAN tag. This gives the title of the piece.
+    poetName- Applied to a SPAN tag. This gives the poet of the work.
+    poetNationality- Applied to a SPAN tag. This gives the nationality of the poet.
+    range- Applied to a SPAN tag. This gives the range of the piece notated as MIDI numbers.
+    subject- Applied to a SPAN tag. This gives the subject of the piece.
+    tempo- Applied to a SPAN tag. This gives the  tempo of the piece.
+    tessitura- Applied to a SPAN tag. This gives the tessitura of the piece.
+    textSource- Applied to a SPAN tag. This gives the source for the text of the work.
 
 ### rel attribute values:
+    external - Applied to an A tag. A reference to resources external to the accelerando site.
+    index - Applied to an A tag. A reference to the starting URI for the service.
+    piece - Applied to an A tag. A reference to pieces associated with a particular cycle.
+    stylesheet- Applied to a LINK tag. A link to the CSS stylesheet.
+
+
 
 ## Accelerando resources
     list of all pieces
