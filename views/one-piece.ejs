@@ -9,6 +9,9 @@
     <!-- We extended the CreativeWork schema to a narrower type for a music composition to allow for certain attributes that would apply to a music composition but woult not apply to a broader creative work (such as tessitura). -->
         <a rel="index" href="/"><h1>Accelerando</h1></a>
         <dl>
+          <table border="0" bordercolor="#888" cellspacing="30" style="border-collapse:collapse;border-top-color:rgb(136,136,136);border-right-color:rgb(136,136,136);border-bottom-color:rgb(136,136,136);border-left-color:rgb(136,136,136);border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px">
+  <tr>
+  <td>
         <h3>Piece Information</h3>
           <dt>Title</dt>
           <dd><span class="pieceTitle" itemprop="name" <% if (item.pieceID) { %> itemid="<%=item.pieceID%>" <% } %>><%=item.pieceTi%></span></dd>
@@ -50,6 +53,8 @@
           <dd><span class="pieceDescription" itemprop="description"><%=item.pieceDescription%></span></dd>
     <% } %>
     <br/>
+    </td>
+    <td>
     <h3>Creator and Source Information</h3>
           <!-- If multiple items in a definition list are associated with a different type in schema.org than CreativeWork or a different instance of CreativeWork than a piece, wrap those list items in a div and add the itemscope and itemtype attributes. -->
           <!-- "creator/composer" and "creator/poet" extends the existing property "creator" of CreativeWork. -->
@@ -75,6 +80,10 @@
           <dd><span class="textSource" itemprop="textSource"><%=item.txtSrc%></span></dd>
     <% } %>
     <br/>
+    </td>
+    </tr>
+    <tr>
+    <td>
     <h3>Subject Information</h3>
     <% if (item.char) { %>
           <div itemprop="associatedCharacter" itemscope itemtype="http://schema.org/Person/Character">
@@ -100,6 +109,10 @@
           <dd><span class="mood" itemprop="keywords"><%=item.mood%></span></dd>
     <% } %>
     <br/>
+    </td>
+    </tr>
+    <tr>
+    <td>
     <h3>Musical Characteristics</h3>
           <dt></>Instrumentation</dt>
           <!-- "instrumentation" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
@@ -134,6 +147,10 @@
           <!-- "difficulty" is a property of MusicComposition, a narrower type of CreativeWork that we propose. -->
           <dd><span class="difficulty" itemprop="difficulty"><%=item.diff%></span></dd> 
   <br/>
+  </td>
+  </tr>
+  <tr>
+  <td>
   <h3>Related Resources</h3>
           <!-- "about" in the lines below is a placeholder for now until we hear from Ryan -->
     <% if (item.imslp) { %>
@@ -142,12 +159,18 @@
     <% if (item.worldCat) { %>
         <dt><a rel="external" itemprop="http://purl.org/dc/terms/relation" href="<%=item.worldCat%>">WorldCat Query</a></dt>
      <% } %>  
+     </td>
+     </tr>
+     </table>
        </dl>
     </div>
 <br/>
 <br/>
 <br/>
     <div class="admin-forms">
+      <table border="0" bordercolor="#888" cellspacing="10" style="border-collapse:collapse;border-top-color:rgb(136,136,136);border-right-color:rgb(136,136,136);border-bottom-color:rgb(136,136,136);border-left-color:rgb(136,136,136);border-top-width:1px;border-right-width:0px;border-bottom-width:1px;border-left-width:0px">
+  <tr>
+  <td>
       <h3>Update piece</h3>
       <form id="update-piece" method="post" action="/pieces/<%=item._id%>">
         <input type="hidden" name="_method" value="put">
@@ -194,8 +217,10 @@
           <input name="item[compDateText]" value="<%=item.compDateText%>" type="text" required>
         </label>
        <label>Piece Description:
-          <textarea name="item[pieceDescription]"cols="50" rows="10" ><%=item.pieceDescription%></textarea>
+          <textarea name="item[pieceDescription]"cols="20" rows="10" ><%=item.pieceDescription%></textarea>
         </label>
+        </td>
+        <td>
         <h4>Creator and Source Information</h4>
 		<label>Composer:
           <input name="item[comp]" value="<%=item.comp%>" type="text">
@@ -218,7 +243,10 @@
      	<label>Text Source:
           <input name="item[txtSrc]" value="<%=item.txtSrc%>" type="text">
         </label>
-
+        </td>
+</tr>
+<tr>
+<td>
         <h4>Subject Information</h4>
        <label>Associated Character:
           <input name="item[char]" value="<%=item.char%>" type="text">
@@ -241,7 +269,10 @@
     	<label>Mood:
           <input name="item[mood]" value="<%=item.mood%>" type="text">
         </label>
-
+        </td>
+</tr>
+<tr>
+<td>
 	    <h4>Musical Characteristics</h4>
        	<label>Instrumentation:
           <input name="item[inst]" value="<%=item.inst%>" type="text" required>
@@ -267,7 +298,10 @@
 		<label>Difficulty:
           <input name="item[diff]" value="<%=item.diff%>" type="text">
         </label>
-
+        </td>
+</tr>
+<tr>
+<td>
 		<h4>Related Resources</h4>
         <label>IMSLP Resource:
           <input name="item[imslp]" value="<%=item.imslp%>" type="text">
@@ -275,8 +309,15 @@
         <label>WorldCat Query:
           <input name="item[worldCat]" value="<%=item.worldCat%>" type="text">
         </label>
+        </td>
+</tr>
+<tr>
+<td>
         <button>Update Piece</button>
+</td>
+</tr>
       </form>
+      </table>
     </div>
   </body>
 </html>
